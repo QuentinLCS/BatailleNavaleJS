@@ -1,3 +1,4 @@
+
 function main() {
 
     //Mode de jeu normal et difficile
@@ -10,15 +11,20 @@ function main() {
     // Système de hover comme jérémy
 
     //.innerhtml permet d'insérer du html
-    
-    let joueurs = [new Joueur(), new Joueur()];
+
+    joueurs = [];
+    numTour = 1;
+
+    document.getElementById("initialisation").style.display = "none";
+    let plateau = new Plateau().afficherPlateau();
 
     Joueur.nbBateaux = document.init.nbBateaux.value;
 
     for (let i = 0; i < 2; i++) {
-        joueurs[i].enregistrerJoueur(i);
+        joueurs[i] = new Joueur(i);
     }
     
-    document.getElementById("initialisation").style.display = "none";
+
+    
 // document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case
 }

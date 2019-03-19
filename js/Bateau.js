@@ -1,15 +1,13 @@
 class Bateau {
 
-    constructor() {
-        this.points = [new Point(), new Point()];
+    constructor(ligne, colonne) {
+        this.points = [new Point(ligne, colonne)];
+        this.coule = false;
     }
 
     estTouche(p) {
         return p == this.points[0] || p == this.points[1];
     }
 
-    enregistrerBateau() {
-        alert("enregistrerBateau");
-    }
 
 }

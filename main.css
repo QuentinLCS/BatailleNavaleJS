@@ -1,0 +1,124 @@
+body
+{
+    background-image: url(images/fond.jpg);
+    background-repeat: repeat;
+    font-family: "Roboto";
+    margin: 0px;
+    padding: 0px;
+}
+
+a
+{
+    color: rgb(0, 115, 192);
+    font-weight: bold;
+    text-decoration: none;
+    transition-property: color;
+    transition-duration: 1s;
+}
+
+a:hover
+{
+	color: rgb(255, 86, 86);
+}
+
+a:visited
+{
+	color: rgb(0, 115, 192);
+}
+
+em
+{
+    color: rgb(0, 115, 192);
+    font-weight: bold;
+    font-style: initial;
+}
+
+strong
+{
+    font-weight: bold;
+}
+
+h1
+{
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0px 0px 7px rgb(202, 202, 202);
+}
+
+h2
+{
+    margin: 70px 5% 25px 5%;
+	text-align: center;
+    font-weight: bold;
+    border-bottom: 3px solid rgb(0, 115, 192);
+}
+
+h3
+{
+    margin: 30px 0 15px 5%;
+	text-align: left;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+p
+{
+    text-align: justify;
+    word-wrap: break-word;
+}
+
+h2 + p
+{
+    text-indent:30px;
+}
+
+h1 + h2
+{
+    margin-top: -20px;
+}
+
+.citation
+{
+    color: rgb(0, 115, 192);
+    font-style: italic;
+    margin: 40px 0 20px 0;
+    font-size: 1.5em;
+}
+
+.important
+{
+    color: rgb(0, 115, 192);
+}
+
+.moins_important
+{
+    color: rgb(95, 95, 95); 
+}
+
+.danger
+{
+    font-weight: 700;
+    color: rgb(253, 43, 43);
+}
+
+
+
+table {
+    border-collapse: collapse;
+}
+
+td:hover {
+    background-color: rgb(233, 233, 233);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.199);
+}
+
+/* Initialisation */
+
+#initialisation {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto 0 auto;
+    background-color:rgba(0, 0, 0, 0.226);
+    border-radius: 20px;
+    padding: 5px 20px 5px 20px;
+}

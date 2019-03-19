@@ -2,19 +2,20 @@ class Joueur {
 
     nbBateaux;
 
-    constructor() {
-        this.nom;
-        this.bateaux = [new Bateau(), new Bateau(), new Bateau()];
+    constructor(nbJoueur) {
+
+        if (!nbJoueur) 
+            this.nom = document.init.nomJoueur1.value;
+        else
+            this.nom = document.init.nomJoueur2.value;
+        
+        this.bateaux = [];
+        this.estInit = false;
+    }
+
+    affichageJoueur() {
+        tours.innerHTML = "<p><h2>Tour</h2>" +numTour+ "</p>";
+        nomJoueur.innerHTML = "<p><h2>" +joueurs[Plateau.i].nom+ "</h2></p>"
     }
     
-    enregistrerJoueur(joueurNum) {
-
-        if (joueurNum) 
-            this.nom = document.init.nomJoueur2.value;
-        else
-            this.nom = document.init.nomJoueur1.value;
-        for (let i = 0; i < Joueur.nbBateaux; i++) {
-            this.bateaux[i].enregistrerBateau();
-        }
-    }
 }
