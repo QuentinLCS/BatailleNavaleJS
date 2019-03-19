@@ -47,6 +47,7 @@ class Plateau {
             Plateau.j++;               
                 
         } else {
+            document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
             joueurs[Plateau.i].affichageJoueur();
             Plateau.i++;
             if (Plateau.i > 1) {

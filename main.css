@@ -1,7 +1,9 @@
 body
 {
-    background-image: url(images/fond.jpg);
+    background-image: url(images/fond_accueil.png);
     background-repeat: repeat;
+    background-size: 2000px;
+    height: auto;
     font-family: "Roboto";
     margin: 0px;
     padding: 0px;
@@ -112,13 +114,35 @@ td:hover {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.199);
 }
 
+/* Navbarre */
+
+nav
+{
+    width: 100%;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.185);
+    overflow: hidden;
+}
+
+nav h1 {
+    width: 100%;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 100px;
+    margin: 0;
+}
+
 /* Initialisation */
 
 #initialisation {
+    position: relative;
     width: 500px;
     height: 500px;
-    margin: 0 auto 0 auto;
-    background-color:rgba(0, 0, 0, 0.226);
+    margin: 50px auto 50px auto;
+    border-top: 5px solid rgb(1, 158, 231);
+    background-color:rgb(255, 255, 255);
     border-radius: 20px;
     padding: 5px 20px 5px 20px;
+    box-shadow: 0px 0px 50px rgb(255, 255, 255);
 }
