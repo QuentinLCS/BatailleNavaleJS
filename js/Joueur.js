@@ -1,18 +1,20 @@
 class Joueur {
 
-    Joueur() {
-        let nom = "";
-        let bateau = [];
+    nbBateaux;
+
+    constructor() {
+        this.nom;
+        this.bateaux = [new Bateau(), new Bateau(), new Bateau()];
     }
     
-    enregistrerJoueur(i) {
+    enregistrerJoueur(joueurNum) {
 
-        if (i) 
+        if (joueurNum) 
             this.nom = document.init.nomJoueur2.value;
         else
             this.nom = document.init.nomJoueur1.value;
-
-        for (let i = 0; i < Bateau.nbBateaux; i++)
-            this.bateau = bateau[0].enregistrerBateau();
+        for (let i = 0; i < Joueur.nbBateaux; i++) {
+            this.bateaux[i].enregistrerBateau();
+        }
     }
 }

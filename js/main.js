@@ -12,13 +12,13 @@ function main() {
     //.innerhtml permet d'insérer du html
     
     let joueurs = [new Joueur(), new Joueur()];
-    alert();
-    Bateau.nbBateaux = document.init.nbBateaux.value;
+
+    Joueur.nbBateaux = document.init.nbBateaux.value;
+
     for (let i = 0; i < 2; i++) {
         joueurs[i].enregistrerJoueur(i);
     }
     
+    document.getElementById("initialisation").style.display = "none";
 // document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case
-
-   alert(joueurs[0].nom, joueurs[1].nom);
 }
