@@ -1,13 +1,9 @@
 class Bateau {
 
-    static nbBateau;
+    static nbBateaux;
 
     Bateau() {
         this.points = [new Point(), new Point()];
-    }
-
-    get nbBateau() {
-        return nbBateau;
     }
 
     estTouche(p) {

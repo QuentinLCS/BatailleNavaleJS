@@ -1,25 +1,18 @@
 class Joueur {
 
     Joueur() {
-        this.nom = "";
-        this.bateau = [];
-    }
-
-    set nom(nom) {
-        this.nom = nom;
+        let nom = "";
+        let bateau = [];
     }
     
-    get nom() {
-        return this.nom;
-    }
+    enregistrerJoueur(i) {
 
-    get nbBateau() {
-        return nbBateau;
-    }
-    
-    enregistrerJoueur() {
-        this.nom = prompt("Veuillez entrer votre nom :")
-        for (let i = 0; i < nbBateau; i++)
+        if (i) 
+            this.nom = document.init.nomJoueur2.value;
+        else
+            this.nom = document.init.nomJoueur1.value;
+
+        for (let i = 0; i < Bateau.nbBateaux; i++)
             this.bateau = bateau[0].enregistrerBateau();
     }
 }
