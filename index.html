@@ -12,9 +12,29 @@
     <script type="text/javascript" src="js/Point.js"></script>
     <script type="text/javascript" src="js/Bateau.js"></script>
     <script type="text/javascript" src="js/Plateau.js"></script>
+    <script type="text/javascript">
+        let audio = new Audio('audio/bgMusic.mp3');
+        audio.play();
+        audio.volumechange(0.1);
+    </script>
 </head>
 <body>
-    <nav><h1>Bataille Navale</h1></nav>
+    <nav>
+        <h1>Bataille Navale</h1>
+        <span class="volume">
+
+                <a class="stick1" onclick="volume('audioPlayer', 0)"></a>
+              
+                <a class="stick2" onclick="volume('audioPlayer', 0.3)"></a>
+              
+                <a class="stick3" onclick="volume('audioPlayer', 0.5)"></a>
+              
+                <a class="stick4" onclick="volume('audioPlayer', 0.7)"></a>
+              
+                <a class="stick5" onclick="volume('audioPlayer', 1)"></a>
+              
+              </span>
+    </nav>
     <div id="modes">
         <div id="facile" onclick="setDifficulty(1)"></div>
         <div id="intermediaire" onclick="setDifficulty(2)"></div>

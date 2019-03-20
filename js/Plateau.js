@@ -17,7 +17,7 @@ class Plateau {
                 if (!colonne && ligne) texte += '<th>' +ligne+ '</th>';
                 else if (!ligne) texte += '<th>' +colonne+ '</th>';
                 else {
-                    texte += '<td align="center" width=30 height=30 onclick="Plateau.cliquerCase('+ligne+ ',' +colonne+')"> ';
+                    texte += '<td align="center" width=30 height=30 onclick="Plateau.cliquerCase(' +this+ ',' +ligne+ ',' +colonne+ ')"> ';
                     nb++;
                     texte += '</td>';
                 }
@@ -34,7 +34,7 @@ class Plateau {
         plateau.innerHTML = this.genererPlateau();
     }
 
-    static cliquerCase(ligne, colonne) {
+    static cliquerCase(cetteCase, ligne, colonne) { //Marquer la c
         
         if (!joueurs[0].estInit && !joueurs[1].estInit) {
 
