@@ -3,7 +3,7 @@ class Plateau {
     i; 
     j;
 
-    constructor() {
+    constructor(taille) {
         Plateau.i = 0; Plateau.j = 0;
         this.taille = document.init.taillePlateau.value;
     }

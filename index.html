@@ -36,9 +36,9 @@
               </span>
     </nav>
     <div id="modes">
-        <div id="facile" onclick="setDifficulty(1)"></div>
-        <div id="intermediaire" onclick="setDifficulty(2)"></div>
-        <div id="difficile" onclick="setDifficulty(3)"></div>
+        <div id="facile" onclick="setMode(1)"></div>
+        <div id="intermediaire" onclick="setMode(2)"></div>
+        <div id="difficile" onclick="setMode(3)"></div>
     </div>
     <div id="initialisation">
         <p>
@@ -46,7 +46,6 @@
                 <label>Joueur 1</label><input type='text' name='nomJoueur1'>
                 <label>Joueur 2</label><input type='text' name='nomJoueur2'>
                 <label>Nombre de bateaux</label><input type="number" name="nbBateaux" step="1" value="1" min="1" max="3">
-                <label>Taille du plateau</label><input type="number" name="taillePlateau" step="1" value="10" min="5" max="20">
             </form>
             <input type="button" value="Commencer la partie !" onclick="main()">
         </p>

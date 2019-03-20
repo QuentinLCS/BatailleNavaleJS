@@ -138,14 +138,16 @@ nav h1 {
 
 #modes {
     display: flex;
+    align-items: center;
     justify-content: center;
+    white-space: nowrap;
+    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 }
 
 #facile, #intermediaire, #difficile {
     width: 200px;
-    height: 100px;
-    
-    
+    height: 100px;   
 }
 
 #facile:hover, #intermediaire:hover, #difficile:hover {

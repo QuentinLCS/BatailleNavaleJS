@@ -16,7 +16,6 @@ function main() {
     numTour = 1;
 
     document.getElementById("initialisation").style.display = "none";
-    let plateau = new Plateau().afficherPlateau();
 
     Joueur.nbBateaux = document.init.nbBateaux.value;
 
