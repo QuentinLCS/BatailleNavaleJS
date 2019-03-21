@@ -136,25 +136,31 @@ nav h1 {
 
 /* Modes de Jeu */
 
-#modes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
+#index-box {
     margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
     transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 }
 
+#modes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 250px;;
+}
+
 #facile, #intermediaire, #difficile {
+    width: 100%;
     width: 200px;
-    height: 100px;   
+    height: 150px;  
 }
 
 #facile:hover, #intermediaire:hover, #difficile:hover {
     z-index: 99;
     width: 300px;
-    height: 150px;
+    height: 200px;
     box-shadow: 0px 0px 50px rgb(255, 255, 255);
+    border-radius: 10px;
 }
 
 #facile {background-color: rgb(13, 253, 25);}

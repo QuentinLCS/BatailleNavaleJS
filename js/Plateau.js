@@ -5,29 +5,26 @@ class Plateau {
 
     constructor(taille) {
         Plateau.i = 0; Plateau.j = 0;
-        this.taille = document.init.taillePlateau.value;
+        this.taille = taille;
     }
 
     genererPlateau() {
         let texte = '<table border="1">';
         let nb = 1;
-        for(let ligne = 0 ; ligne <= this.taille ; ligne++) {
+        for(let ligne = 0 ; ligne < this.taille ; ligne++) {
             texte += '<tr>';
-            for(let colonne = 0 ; colonne <= this.taille ; colonne++) {
-                if (!colonne && ligne) texte += '<th>' +ligne+ '</th>';
-                else if (!ligne) texte += '<th>' +colonne+ '</th>';
-                else {
+            for(let colonne = 0 ; colonne < this.taille ; colonne++) {
                     texte += '<td align="center" width=30 height=30 onclick="Plateau.cliquerCase(' +this+ ',' +ligne+ ',' +colonne+ ')"> ';
                     nb++;
                     texte += '</td>';
                 }
+                texte += '</tr>';
             }
-
-            texte += '</tr>';
+            texte += '</table>';
+            return texte;
         }
-        texte += '</table>';
-        return texte;
-    }
+
+
 
     afficherPlateau() {
         let plateau = document.getElementById("plateau");

@@ -1,5 +1,6 @@
 function setMode(mode) {
     let plateau;
+
     switch (mode) {
         case 1:
             plateau = new Plateau(15);
@@ -11,4 +12,8 @@ function setMode(mode) {
         plateau = new Plateau(30);
             break;
     }
+    
+    document.getElementById("index-box").style.display = "none";
+    document.getElementById("initialisation").style.display = "block";
+
 }
