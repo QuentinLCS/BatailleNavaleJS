@@ -34,16 +34,9 @@ class Plateau {
     cliquerCase(cetteCase, ligne, colonne) { //Marquer la case
         
         if (!joueurs[0].estInit && !joueurs[1].estInit)
-           Bateau.initBateaux(ligne, colonne);            
+            Bateau.initBateaux(ligne, colonne);            
         else {
-            if (Plateau.i > 1 || !numTour) {
-                Plateau.i = 0;
-                numTour++;
-            }
-
-            document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
-            joueurs[Plateau.i].affichageJoueur();
-            Plateau.i++;
+            
         }
     }    
 }

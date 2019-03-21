@@ -42,7 +42,16 @@ function lancerPartie() {
         joueurs[i] = new Joueur(i);
     }
     
+    function main() {
+        if (Plateau.i > 1 || !numTour) {
+            Plateau.i = 0;
+            numTour++;
+        }
 
+        document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
+        joueurs[Plateau.i].affichageJoueur();
+        Plateau.i++;
+    }
     
 // document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case
 }
