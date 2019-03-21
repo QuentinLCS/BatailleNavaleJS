@@ -12,6 +12,7 @@ body
 .cursor-targetW {cursor: url(images/cursorWhite.png);}
 .cursor-targetB {cursor: url(images/cursorBlack.png);}
 .cursor-click {cursor: pointer;}
+.cursor-impossible {cursor: not-allowed;}
 
 
 a
@@ -133,7 +134,7 @@ nav
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.185);
     overflow: hidden;
-    display: none;
+    display: block;
 }
 
 nav h1 {
@@ -145,10 +146,9 @@ nav h1 {
 }
 
 /* Modes de Jeu */
-
-#index-box {
-    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+.centrerV {
+    margin-top: 40vh; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-50%); 
 }
 
 #modes {
@@ -164,7 +164,6 @@ nav h1 {
     width: 200px;
     height: 150px;  
     box-shadow: none;
-    border-radius: 0;
 }
 
 #facile:hover, #intermediaire, #difficile:hover {

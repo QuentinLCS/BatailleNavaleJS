@@ -2,9 +2,9 @@ class Joueur {
 
     nbBateaux;
 
-    constructor(nbJoueur) {
+    constructor(numJoueur) {
 
-        if (!nbJoueur) 
+        if (!numJoueur) 
             this.nom = document.init.nomJoueur1.value;
         else
             this.nom = document.init.nomJoueur2.value;
@@ -16,7 +16,7 @@ class Joueur {
 
     affichageJoueur() {
         tours.innerHTML = "<p><h2>Tour n°" +numTour+ "</h2></p>";
-        nomJoueur.innerHTML = "<p><h2>" +joueurs[Plateau.i].nom+ "</h2></p>"
+        nomJoueur.innerHTML = "<p><h2>" +Jeu.joueurs[Plateau.i].nom+ "</h2></p>"
     }
     
 }

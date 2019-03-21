@@ -1,9 +1,10 @@
 class Point {
 
     constructor(x, y) {
-       this.x = x;
-       this.y = y; 
-       this.touche = false;
+        this.x = x;
+        this.y = y; 
+        this.touche = false;
+        console.log(this.getX()+ " ; " +this.getY());
     }
 
     getX() {
@@ -28,7 +29,7 @@ class Point {
 
     estTouche(p) {
         let resultat = false;
-        if (p == this.points[0]) 
+        if (p == this) 
             resultat = true;
         else {
             let distance = Math.sqrt(Math.pow(p.getX() - this.getX()) + Math.pow(p.getY() - this.getY()))

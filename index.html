@@ -11,21 +11,21 @@
     <script type="text/javascript" src="js/Point.js"></script>
     <script type="text/javascript" src="js/Bateau.js"></script>
     <script type="text/javascript" src="js/Plateau.js"></script>
-    <script type="text/javascript">
-        let audio = new Audio('audio/bgMusic.mp3');
-        audio.play();
-    </script>
+    <script type="text/javascript" src="js/Case.js"></script>
 </head>
 <body>
     <nav>
-  
+        <audio controls loop preload="auto">
+            <source src="audio/bgMusic.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas la musique.
+        </audio>
     </nav>
-    <div id="index-box">
+    <div id="index-box" class="centrerV">
         <h1>Bataille Navale</h1>
         <div id="modes">
-            <div id="facile" class="cursor-click" onclick="setMode(1)"></div>
-            <div id="difficile" class="cursor-click" onclick="setMode(3)"></div>
-            <div id="intermediaire" class="cursor-click" onclick="setMode(2)"></div>
+            <div id="facile" class="cursor-click" onclick="Jeu.setMode(1)"></div>
+            <div id="difficile" class="cursor-click" onclick="Jeu.setMode(3)"></div>
+            <div id="intermediaire" class="cursor-click" onclick="Jeu.setMode(2)"></div>
         </div>
     </div>
     <div id="initialisation">
@@ -35,7 +35,7 @@
                 <div class="joueur"><label>Joueur 2: </label><input class="bouton1" type='text' name='nomJoueur2'></div>
                 <div class="joueur"><label>Nombre de bateaux: </label><input class="bouton1" type="number" name="nbBateaux" step="1" value="1" min="1" max="3"></div>
             </form>
-            <input class="bouton2" type="button" value="Commencer la partie !" onclick="lancerPartie()">
+            <input class="bouton2" type="button" value="Commencer la partie !" onclick="Jeu.lancerPartie()">
         </p>
     </div>
     <div id="infos"><div id="tours"></div><div id="nomJoueur"></div></div>
