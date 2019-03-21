@@ -34,6 +34,9 @@ function lancerPartie() {
     numTour = 0;
 
     document.getElementById("initialisation").style.display = "none";
+
+    tours.innerHTML = "<p><h2>Veuillez choisir vos bateaux</h2></p>";
+
     plateau.afficherPlateau();
 
     Joueur.nbBateaux = document.init.nbBateaux.value;
