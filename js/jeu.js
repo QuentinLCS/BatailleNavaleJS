@@ -1,4 +1,4 @@
-function setMode(mode) {
+function setMode(mode) { //test
 
     switch (mode) {
         case 1:
