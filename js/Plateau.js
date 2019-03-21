@@ -27,16 +27,18 @@ class Plateau {
 
 
     afficherPlateau() {
+
         let plateau = document.getElementById("plateau");
         plateau.innerHTML = this.genererPlateau();
     }
 
-    cliquerCase(cetteCase, ligne, colonne) { //Marquer la case
-        
+    cliquerCase(caseSelectionee, ligne, colonne) { //Marquer la case
+        let coordonnees = new Point(ligne, colonne);
         if (!joueurs[0].estInit && !joueurs[1].estInit)
-            Bateau.initBateaux(ligne, colonne);            
+            Bateau.initBateaux(coordonnees);            
         else {
-            jeu();
+            gestionTours();
+            jeu(caseSelectionee, coordonnees);
         }
     }    
 }

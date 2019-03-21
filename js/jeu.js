@@ -41,17 +41,36 @@ function lancerPartie() {
     for (let i = 0; i < 2; i++) {
         joueurs[i] = new Joueur(i);
     }
+}
     
-    function jeu() {
-        if (Plateau.i > 1 || !numTour) {
-            Plateau.i = 0;
-            numTour++;
-        }
+function jeu(caseSelectionee, coordonnees) {
+       
+    for (let i = 0; i < Joueur.nbBateaux; i++) {
+        if (!Plateau.i) {
+            if (joueurs[1].bateaux[i].getPoints()[0].estTouche(coordonnees) == true) {
+                console.log("if1");
+                document.caseSelectionee.style.backgroundColor = "rgb(0, 200, 13, 0.301)";
+            } else if (joueurs[1].bateaux[i].getPoints()[0].estTouche(coordonnees) == false) {
+                document.caseSelectionee.style.backgroundColor = "rgb(200, 13, 13, 0.301)";
+                console.log("if 1");
+            } else {
+                document.caseSelectionee.style.backgroundColor = "rgb(0, 0, 200, 0.301)";
+                console.log(joueurs[1].bateaux[i].getPoints()[0].estTouche(coordonnees));
+            }
+        } else {
 
-        document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
-        joueurs[Plateau.i].affichageJoueur();
-        Plateau.i++;
+        }
     }
+}
+
+function gestionTours() {
+    if (Plateau.i > 1 || !numTour) {
+        Plateau.i = 0;
+        numTour++;
+    }
+    document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
+    joueurs[Plateau.i].affichageJoueur();
+    Plateau.i++;
+}
     
 // document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case
-}
