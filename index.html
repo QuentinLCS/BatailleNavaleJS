@@ -6,7 +6,6 @@
     <title>Bataille Navale</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/jeu.js"></script>
     <script type="text/javascript" src="js/Joueur.js"></script>
     <script type="text/javascript" src="js/Point.js"></script>
@@ -30,9 +29,9 @@
     <div id="index-box">
         <h1>Bataille Navale</h1>
         <div id="modes">
-            <div id="facile" onclick="setMode(1)"></div>
-            <div id="intermediaire" onclick="setMode(2)"></div>
-            <div id="difficile" onclick="setMode(3)"></div>
+            <div id="facile" class="cursor-click" onclick="setMode(1)"></div>
+            <div id="difficile" class="cursor-click" onclick="setMode(3)"></div>
+            <div id="intermediaire" class="cursor-click" onclick="setMode(2)"></div>
         </div>
     </div>
     <div id="initialisation">
@@ -42,7 +41,7 @@
                 <label>Joueur 2</label><input type='text' name='nomJoueur2'>
                 <label>Nombre de bateaux</label><input type="number" name="nbBateaux" step="1" value="1" min="1" max="3">
             </form>
-            <input type="button" value="Commencer la partie !" onclick="main()">
+            <input type="button" value="Commencer la partie !" onclick="lancerPartie()">
         </p>
     </div>
     <div id="infos"><div id="tours"></div><div id="nomJoueur"></div></div>

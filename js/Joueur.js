@@ -11,6 +11,7 @@ class Joueur {
         
         this.bateaux = [];
         this.estInit = false;
+        
     }
 
     affichageJoueur() {

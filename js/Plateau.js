@@ -14,7 +14,7 @@ class Plateau {
         for(let ligne = 0 ; ligne < this.taille ; ligne++) {
             texte += '<tr>';
             for(let colonne = 0 ; colonne < this.taille ; colonne++) {
-                    texte += '<td align="center" width=30 height=30 onclick="Plateau.cliquerCase(' +this+ ',' +ligne+ ',' +colonne+ ')"> ';
+                    texte += '<td align="center" width=30 height=30 onclick="plateau.cliquerCase( this ,' +ligne+ ',' +colonne+ ')"> ';
                     nb++;
                     texte += '</td>';
                 }
@@ -31,26 +31,19 @@ class Plateau {
         plateau.innerHTML = this.genererPlateau();
     }
 
-    static cliquerCase(cetteCase, ligne, colonne) { //Marquer la c
+    cliquerCase(cetteCase, ligne, colonne) { //Marquer la case
         
-        if (!joueurs[0].estInit && !joueurs[1].estInit) {
-
-            if (Plateau.j == Joueur.nbBateaux) { 
-                joueurs[Plateau.i].estInit = true;
-                Plateau.i++; Plateau.j = 0;
-            }
-
-            joueurs[Plateau.i].bateaux[Plateau.j] = new Bateau(ligne, colonne);
-            Plateau.j++;               
-                
-        } else {
-            document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
-            joueurs[Plateau.i].affichageJoueur();
-            Plateau.i++;
-            if (Plateau.i > 1) {
+        if (!joueurs[0].estInit && !joueurs[1].estInit)
+           Bateau.initBateaux(ligne, colonne);            
+        else {
+            if (Plateau.i > 1 || !numTour) {
                 Plateau.i = 0;
                 numTour++;
             }
+
+            document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
+            joueurs[Plateau.i].affichageJoueur();
+            Plateau.i++;
         }
     }    
 }
