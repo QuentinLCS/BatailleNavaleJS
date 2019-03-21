@@ -206,19 +206,25 @@ nav h1 {
 
 }
 
+.regleDuJeu
+{
+    margin-left: 1%;
+    font-family: "Roboto";
+}
+
 .joueur
 {
     padding: 8%;
     margin: auto;
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto";
     color: rgb(102, 39, 3);
     font-size: 14pt;
 }
 
 .bouton1
 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto";
     color:  rgb(102, 39, 3);
 }
 
@@ -226,7 +232,7 @@ nav h1 {
 {
     margin-top: 10%;
     padding: 4%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto";
     font-size: 12pt;
     color:  rgb(102, 39, 3);
     background-color: rgb(1, 158, 231);
