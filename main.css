@@ -5,6 +5,7 @@ body
     background-size: 2000px;
     height: auto;
     font-family: "Roboto";
+    color: rgb(102, 39, 3);
     margin: 0px;
     padding: 0px;
 }
@@ -206,10 +207,21 @@ nav h1 {
 
 }
 
-.regleDuJeu
+#bouton
 {
-    margin-left: 1%;
+    display: block;
+    margin: auto;
+    color: rgb(102, 39, 3);
+    background-color: rgb(1, 158, 231);
+}
+
+#regleDuJeu
+{
+    display: none;
+    text-align: center;
     font-family: "Roboto";
+    color: rgb(102, 39, 3);
+
 }
 
 .joueur
