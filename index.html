@@ -22,6 +22,21 @@
     </nav>
     <div id="index-box" class="centrerV">
         <h1>Bataille Navale</h1>
+        <button id="bouton" type="button" value="Règle du jeu" onClick="regleDuJeu()">Règle du jeu</button>
+        <div id="regleDuJeu">
+            Version multijoueur.</br>
+            Choisissez le nombre de bateau que vous souhaitez, et placer le(s) à votre guise.</br>
+            Votre but est de faire couler tout les bateaux de votre adversaire.</br>
+            Si vous touchez la case où se trouve le bateau adverse, vous le faites couler.</br>
+            Si vous touchez une case à moins de 6 cases du bateau adverse,</br>
+            Le chiffre vous indiquant le nombre de cases d'écart s'affiche.</br>
+            Ce sera alors à vous de déduire sa position exacte.</br>
+            Si vous êtes à plus de 6 cases, rien ne s'affiche et votre tour passe.</br>
+            <strong> Facile: </strong> Plateau de 15 cases sur 15.</br>
+            <strong> Intermediaire: </strong> Plateau de 30 cases sur 30.</br>
+            <strong> Difficile: </strong> Plateau de 30 cases sur 30. Lorsque vous êtes à moins de 6 cases du bateau adverse,</br>
+            Celui-ci se positionne à l'opposé de sa position initiale, relativement à vous.</br>
+        </div>
         <div id="modes">
             <div id="facile" class="cursor-click" onclick="Jeu.setMode(1)"></div>
             <div id="difficile" class="cursor-click" onclick="Jeu.setMode(3)"></div>

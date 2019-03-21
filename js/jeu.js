@@ -28,6 +28,7 @@ class Jeu {
     static lancerPartie() {
 
         document.getElementById("initialisation").style.display = "none";
+        tours.innerHTML = "<p><h2>Veuillez choisir vos bateaux</h2></p>";
         Jeu.plateau.afficherPlateau();
 
         Joueur.nbBateaux = document.init.nbBateaux.value;
@@ -69,3 +70,12 @@ class Jeu {
     }
 }
 // document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case
+function regleDuJeu(){
+    if(document.getElementById('bouton').innerHTML == 'Règle du jeu'){
+        document.getElementById('bouton').innerHTML = 'Règle du jeu';
+        document.getElementById('regleDuJeu').style.display = 'block';
+    }else{
+        document.getElementById('bouton').innerhtml = 'Règle du jeu';
+        document.getElementById('regleDuJeu').style.display='none';
+    }
+}
