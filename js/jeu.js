@@ -42,7 +42,7 @@ function lancerPartie() {
         joueurs[i] = new Joueur(i);
     }
     
-    function main() {
+    function jeu() {
         if (Plateau.i > 1 || !numTour) {
             Plateau.i = 0;
             numTour++;

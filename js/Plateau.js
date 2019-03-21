@@ -36,7 +36,7 @@ class Plateau {
         if (!joueurs[0].estInit && !joueurs[1].estInit)
             Bateau.initBateaux(ligne, colonne);            
         else {
-            
+            jeu();
         }
     }    
 }
