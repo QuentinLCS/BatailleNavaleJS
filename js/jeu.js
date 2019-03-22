@@ -42,13 +42,11 @@ class Jeu {
             if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == true) {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTouche(Plateau.i, true);
                 Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[Plateau.j].points[0].setTouche(true);
-                alert("Coulé! le bateau adverse a fait naufrage!");
             } else if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == false) {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTire(Plateau.i, true);
             } else {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
                 console.log(Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees));
-                alert("Vous êtes seulement à cases du bateau adverse!");
             }
         }
     }

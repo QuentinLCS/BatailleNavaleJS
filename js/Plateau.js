@@ -31,7 +31,7 @@ class Plateau {
                 if (this.tableau[ligne][colonne].getTire(Plateau.i)) {
                     texte += '<td class="case-tire cursor-impossible" align="center" width=30 height=30> ';
                 } else if (this.tableau[ligne][colonne].getProche(Plateau.i)) {
-                    texte += '<td class="case-proche cursor-impossible" align="center" width=30 height=30> ';
+                    texte += '<td class="case-proche cursor-impossible" align="center" width=30 height=30>';
                 } else if (this.tableau[ligne][colonne].getBateau(Plateau.i)) {
                     texte += '<td class="case-bateau cursor-targetW" align="center" width=30 height=30 onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ';
                 } else {
