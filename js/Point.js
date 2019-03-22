@@ -23,13 +23,13 @@ class Point {
         this.y = y;
     }
 
-    setTouche() {
-        this.touche = true;
+    setTouche(newVal) {
+        this.touche = newVal;
     }
 
     estTouche(p) {
         let resultat = false;
-        if (p == this) 
+        if (p.getX() == this.getX() && p.getY() == this.getY()) 
             resultat = true;
         else {
             let distance = Math.sqrt(Math.pow(p.getX() - this.getX()) + Math.pow(p.getY() - this.getY()))

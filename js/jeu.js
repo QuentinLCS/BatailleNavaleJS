@@ -1,7 +1,7 @@
 class Jeu {
 
     joueurs = [];
-    numTour = 0;
+    numTour;
     plateau;
 
     static setMode(mode) { //test
@@ -33,27 +33,20 @@ class Jeu {
 
         Joueur.nbBateaux = document.init.nbBateaux.value;
         Jeu.joueurs = [new Joueur(0), new Joueur(1)];
+        Jeu.numTour = 1;
     }
     
     static jeu(coordonnees) {
        
         for (let i = 0; i < Joueur.nbBateaux; i++) {
-            console.log("==== Fonction JEU ====")
-            console.log("i = " +Plateau.i)
-            console.log("if1");
-            if (Jeu.joueurs[1].bateaux[i].getPoints()[0].estTouche(coordonnees) == true) {
-                console.log("if2");
-                tableau[coordonnees.getX()][coordonnees.getY()].setTouche(Plateau.i, true);
-                console.log("if2->");
-            } else if (Jeu.joueurs[1].bateaux[i].getPoints()[0].estTouche(coordonnees) == false) {
-                console.log("if3");
-                tableau[coordonnees.getX()][coordonnees.getY()].setTire(Plateau.i, true);
-                console.log("if3->");
+            if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == true) {
+                Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTouche(Plateau.i, true);
+                Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[Plateau.j].points[0].setTouche(true);
+            } else if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == false) {
+                Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTire(Plateau.i, true);
             } else {
-                console.log("if4");
-                tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
-                console.log("if4->");
-                console.log(Jeu.joueurs[1].bateaux[i].getPoints()[0].estTouche(coordonnees));
+                Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
+                console.log(Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees));
             }
         }
     }
@@ -61,21 +54,25 @@ class Jeu {
     static gestionTours() {
         document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
         Jeu.joueurs[Plateau.i].affichageJoueur();
+        Jeu.plateau.afficherPlateau();
         Plateau.i++;
+        console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour)
 
-        if (Plateau.i >= 1 || !numTour) {
+        if (Plateau.i > 1) {
             Plateau.i = 0;
-            numTour++;
+            Jeu.numTour++;
+        }
+    }
+
+    static regleDuJeu(){
+
+        if (document.getElementById('bouton').innerHTML == 'Règle du jeu') {
+            document.getElementById('bouton').innerHTML = 'Règle du jeu';
+            document.getElementById('regleDuJeu').style.display = 'block';
+        } else {
+            document.getElementById('bouton').innerhtml = 'Règle du jeu';
+            document.getElementById('regleDuJeu').style.display='none';
         }
     }
 }
 // document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case
-function regleDuJeu(){
-    if(document.getElementById('bouton').innerHTML == 'Règle du jeu'){
-        document.getElementById('bouton').innerHTML = 'Règle du jeu';
-        document.getElementById('regleDuJeu').style.display = 'block';
-    }else{
-        document.getElementById('bouton').innerhtml = 'Règle du jeu';
-        document.getElementById('regleDuJeu').style.display='none';
-    }
-}

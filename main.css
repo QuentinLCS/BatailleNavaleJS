@@ -10,8 +10,8 @@ body
     padding: 0px;
 }
 
-.cursor-targetW {cursor: url(images/cursorWhite.png);}
-.cursor-targetB {cursor: url(images/cursorBlack.png);}
+.cursor-targetW {cursor: url(images/cursorWhite.cur);}
+.cursor-targetB {cursor: url(images/cursorBlack.cur);}
 .cursor-click {cursor: pointer;}
 .cursor-impossible {cursor: not-allowed;}
 
@@ -257,4 +257,16 @@ nav h1 {
 #nomJoueur
 {
     color:rgb(0, 115, 192);
+}
+
+.case-bateau {
+    background-color: rgb(0, 0, 255);
+}
+
+.case-tire {
+    background-color: rgb(0, 217, 255);
+}
+
+.case-proche {
+    background-color: rgb(255, 153, 0);
 }
