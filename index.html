@@ -53,7 +53,19 @@
             <input class="bouton2" type="button" value="Commencer la partie !" onclick="Jeu.lancerPartie()">
         </p>
     </div>
-    <div id="infos"><div id="tours"></div><div id="nomJoueur"></div></div>
-    <div id="plateau"></div>
+    <div id="partie">    
+        <div id="infos"><div id="tours"></div><div id="nomJoueur"></div></div>
+        <div id="plateau"></div>
+    </div>
+    <div id="transition" class="centrerV">
+        <div>
+            <p>
+                Au tour de
+            </p>
+                <h2 id="transition-prochain"></h2>
+                <div class="tips">TIPS : Cachez l'écran à votre adversaire !</div>
+        </div>
+        <div id="boutton-pret" class="boutton cursor-click" onclick="Jeu.transition()">PRET</div>
+    </div>
 </body>
 </html>

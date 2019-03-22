@@ -21,7 +21,7 @@ class Bateau {
         }
     
         if (Jeu.joueurs[0].estInit && Jeu.joueurs[1].estInit)
-            Plateau.i = 0;Z
+            Plateau.i = 0;
 
     }
 

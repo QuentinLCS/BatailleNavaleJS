@@ -5,8 +5,17 @@ class Plateau {
 
     constructor() {
         Plateau.i = 0; Plateau.j = 0;
+        this.clickIsOn = true;
         this.tableau = [];
         this.taille;      
+    }
+
+    getTaille() {
+        return this.taille;
+    }
+
+    getClickIsOn() {
+        return this.clickIsOn;
     }
 
     setTaille(taille) {
@@ -18,17 +27,15 @@ class Plateau {
         } 
     }
 
-    getTaille() {
-        return this.taille;
+    setClickIsOn(clickIsOn) {
+        this.clickIsOn = clickIsOn;
     }
 
     genererPlateau() {
-        console.log("GENERER PLATEAU gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
         let texte = '<table border="1">';
         for(let ligne = 0 ; ligne < this.taille ; ligne++) {
             texte += '<tr>';
             for(let colonne = 0 ; colonne < this.taille ; colonne++) {
-                console.log("tire : "+this.tableau[ligne][colonne].getTire(Plateau.i)+" / proche : "+this.tableau[ligne][colonne].getProche(Plateau.i)+" / bateau : "+this.tableau[ligne][colonne].getBateau(Plateau.i));
                 if (this.tableau[ligne][colonne].getTire(Plateau.i)) {
                     texte += '<td class="case-tire cursor-impossible" align="center" width=30 height=30> ';
                 } else if (this.tableau[ligne][colonne].getProche(Plateau.i)) {
@@ -52,15 +59,21 @@ class Plateau {
         document.getElementById("plateau").innerHTML = this.genererPlateau();
     }
 
-    cliquerCase(ligne, colonne) { //Marquer la case
+    cliquerCase(ligne, colonne) { 
 
-        console.log("ligne : " +ligne+ "; colonne : " +colonne)
-        let coordonnees = new Point(ligne, colonne);
-        if (!Jeu.joueurs[0].estInit || !Jeu.joueurs[1].estInit)
-            Bateau.initBateaux(coordonnees);            
-        if (Jeu.joueurs[0].estInit && Jeu.joueurs[1].estInit) {
-            Jeu.gestionTours();
-            if (Jeu.numTour > 0) Jeu.jeu(coordonnees);
+        if (Jeu.plateau.getClickIsOn()) {
+            Jeu.plateau.setClickIsOn(false);
+            setTimeout(function() {
+                Jeu.transition();
+            }, 5000);
+
+            let coordonnees = new Point(ligne, colonne);
+            if (!Jeu.joueurs[0].estInit || !Jeu.joueurs[1].estInit)
+                Bateau.initBateaux(coordonnees);            
+            if (Jeu.joueurs[0].estInit && Jeu.joueurs[1].estInit) {
+                Jeu.gestionTours();
+                if (Jeu.numTour > 0) Jeu.jeu(coordonnees);
+            }
         }
     }    
 }

@@ -57,26 +57,34 @@ class Jeu {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
                 console.log(Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees));
             }
-        }
-
-        Jeu.plateau.afficherPlateau();
+        }      
 
     }
 
     static gestionTours() {
 
-
-
         document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
         console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
         Jeu.joueurs[Plateau.i].affichageJoueur();
-        Jeu.plateau.afficherPlateau();
         Plateau.i++;
+        Jeu.plateau.afficherPlateau();
         console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
 
         if (Plateau.i > 1) {
             Plateau.i = 0;
             Jeu.numTour++;
+        }
+    }
+
+    static transition() {
+        console.log("----- I = " +Plateau.i+ " -------")
+        if (!Jeu.plateau.getClickIsOn()) {
+            document.getElementById("partie").style.display = "none";
+            document.getElementById("transition").style.display = "block";
+            document.getElementById("transition-prochain").innerHTML = Jeu.joueurs[Plateau.i].getNom();
+            Jeu.plateau.setClickIsOn(true);
+        } else {
+
         }
     }
 
@@ -91,13 +99,5 @@ class Jeu {
         }
     }
 
-    static wait(secondes) {
-        let continuer = true;
-        while (continuer) {
-            setTimeout(() => {
-                continuer = false;
-            }, 5000);
-        }
-    }
 }
 // document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case
