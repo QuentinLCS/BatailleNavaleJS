@@ -28,12 +28,15 @@ class Point {
     }
 
     estTouche(p) {
-        let resultat = false;
+        let resultat = -1;
+        console.log(p.getX() + " ; " + p.getY() + " ; " + this.getX() + " ; " + this.getY())
         if (p.getX() == this.getX() && p.getY() == this.getY()) 
-            resultat = true;
+            resultat = 0;
         else {
-            let distance = Math.sqrt(Math.pow(p.getX() - this.getX()) + Math.pow(p.getY() - this.getY()))
-            if ( distance <= 8)
+            console.log("$$$$$$$$$$$$$$$$$$");
+            let distance = Math.sqrt(Math.pow(this.getX() - p.getX(), 2) + Math.pow(this.getY() - p.getY(), 2));
+            console.log("distance = " +distance);
+            if ( distance <= 8 )
                 resultat = distance;
         }
         return resultat;

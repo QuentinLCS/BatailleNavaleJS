@@ -23,6 +23,7 @@ class Plateau {
     }
 
     genererPlateau() {
+        console.log("GENERER PLATEAU gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
         let texte = '<table border="1">';
         for(let ligne = 0 ; ligne < this.taille ; ligne++) {
             texte += '<tr>';
@@ -33,7 +34,7 @@ class Plateau {
                 } else if (this.tableau[ligne][colonne].getProche(Plateau.i)) {
                     texte += '<td class="case-proche cursor-impossible" align="center" width=30 height=30>';
                 } else if (this.tableau[ligne][colonne].getBateau(Plateau.i)) {
-                    texte += '<td class="case-bateau cursor-targetW" align="center" width=30 height=30 onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ';
+                    texte += '<td class="cursor-targetW" align="center" width=30 height=30 onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ⚓ ';
                 } else {
                     texte += '<td align="center" class="cursor-targetB" width=30 height=30 onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ';
                 }
@@ -52,13 +53,14 @@ class Plateau {
     }
 
     cliquerCase(ligne, colonne) { //Marquer la case
+
         console.log("ligne : " +ligne+ "; colonne : " +colonne)
         let coordonnees = new Point(ligne, colonne);
         if (!Jeu.joueurs[0].estInit || !Jeu.joueurs[1].estInit)
             Bateau.initBateaux(coordonnees);            
         if (Jeu.joueurs[0].estInit && Jeu.joueurs[1].estInit) {
             Jeu.gestionTours();
-            Jeu.jeu(coordonnees);
+            if (Jeu.numTour > 0) Jeu.jeu(coordonnees);
         }
     }    
 }

@@ -10,13 +10,13 @@ class Jeu {
 
         switch (mode) {
             case 1:
-                Jeu.plateau.setTaille(15);
+                Jeu.plateau.setTaille(10);
                 break;
             case 2:
-                Jeu.plateau.setTaille(25);
+                Jeu.plateau.setTaille(15);
                 break;
             case 3:
-                Jeu.plateau.setTaille(25);
+                Jeu.plateau.setTaille(20);
                 break;
         }
         
@@ -33,30 +33,44 @@ class Jeu {
 
         Joueur.nbBateaux = document.init.nbBateaux.value;
         Jeu.joueurs = [new Joueur(0), new Joueur(1)];
-        Jeu.numTour = 1;
+        Jeu.numTour = 0;
     }
     
     static jeu(coordonnees) {
-       
+        console.log("==== JEU ====");
+        console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
+
+        if (Jeu.numTour == 0) {
+            Plateau.i = 0;
+            Jeu.numTour = 1;
+        }
+
         for (let i = 0; i < Joueur.nbBateaux; i++) {
-            if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == true) {
+            if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == 0) {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTouche(Plateau.i, true);
                 Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[Plateau.j].points[0].setTouche(true);
-            } else if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == false) {
+                console.log("--------- Touche ! ---------");
+            } else if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1) {
+                console.log("--------- Pas touche ! ---------");
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTire(Plateau.i, true);
             } else {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
                 console.log(Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees));
             }
         }
+
+        Jeu.plateau.afficherPlateau();
+
     }
 
     static gestionTours() {
+
         document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
+        console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
         Jeu.joueurs[Plateau.i].affichageJoueur();
         Jeu.plateau.afficherPlateau();
         Plateau.i++;
-        console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour)
+        console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
 
         if (Plateau.i > 1) {
             Plateau.i = 0;
