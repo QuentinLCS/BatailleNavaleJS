@@ -12,14 +12,16 @@ class Bateau {
         console.log("===== INIT BATEAUX =====")
         Jeu.joueurs[Plateau.i].bateaux[Plateau.j] = new Bateau(coordonnees);
         Plateau.j++; 
+        
+        Jeu.plateau.afficherPlateau();
 
         if (Plateau.j == Joueur.nbBateaux) { 
             Jeu.joueurs[Plateau.i].estInit = true;
             Plateau.i++; Plateau.j = 0;
         }
-
+    
         if (Jeu.joueurs[0].estInit && Jeu.joueurs[1].estInit)
-            Plateau.i = 0;
+            Plateau.i = 0;Z
 
     }
 

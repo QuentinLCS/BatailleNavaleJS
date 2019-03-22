@@ -10,8 +10,8 @@ body
     padding: 0px;
 }
 
-.cursor-targetW {cursor: url(images/cursorWhite.cur);}
-.cursor-targetB {cursor: url(images/cursorBlack.cur);}
+.cursor-targetW {cursor: url(images/cursorWhite.png)8 6, default;}
+.cursor-targetB {cursor: url(images/cursorBlack.png)8 6, default;}
 .cursor-click {cursor: pointer;}
 .cursor-impossible {cursor: not-allowed;}
 
@@ -165,6 +165,7 @@ nav h1 {
     width: 200px;
     height: 150px;  
     box-shadow: none;
+    border-radius: 0px;
 }
 
 #facile:hover, #intermediaire, #difficile:hover {

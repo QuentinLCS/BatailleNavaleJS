@@ -56,7 +56,6 @@ class Jeu {
             } else {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
                 console.log(Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees));
-                alert("Vous êtes seulement à cases du bateau adverse!");
             }
         }
 
@@ -65,6 +64,8 @@ class Jeu {
     }
 
     static gestionTours() {
+
+
 
         document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
         console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
@@ -87,6 +88,15 @@ class Jeu {
         } else {
             document.getElementById('bouton').innerhtml = 'Règle du jeu';
             document.getElementById('regleDuJeu').style.display='none';
+        }
+    }
+
+    static wait(secondes) {
+        let continuer = true;
+        while (continuer) {
+            setTimeout(() => {
+                continuer = false;
+            }, 5000);
         }
     }
 }
