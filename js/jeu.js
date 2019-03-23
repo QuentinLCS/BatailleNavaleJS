@@ -11,12 +11,14 @@ class Jeu {
         switch (mode) {
             case 1:
                 Jeu.plateau.setTaille(10);
+                document.documentElement.style.setProperty('--main-color', 'rgb(34, 175, 194)');
                 break;
             case 2:
                 Jeu.plateau.setTaille(15);
                 break;
             case 3:
                 Jeu.plateau.setTaille(20);
+                document.documentElement.style.setProperty('--main-color', 'rgb(103, 34, 194)'); 
                 break;
         }
         
@@ -29,7 +31,7 @@ class Jeu {
     static lancerPartie() {
 
         document.getElementById("initialisation").style.display = "none";
-        document.getElementById("partie").style.display = "block";
+        document.getElementById("partie").style.display = "flex";
         Affichage.boutonsOptions(2);
         Joueur.nbBateaux = document.init.nbBateaux.value;
         Jeu.joueurs = [new Joueur(0), new Joueur(1)];
@@ -74,6 +76,8 @@ class Jeu {
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
                 document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
+                document.body.style.backgroundImage = "url(images/fond_victoire.jpg)";
+
                 Jeu.numTour = -1;
             } else {
                 Plateau.i<1 ? Plateau.i++ : Plateau.i--;
@@ -97,20 +101,12 @@ class Jeu {
                 document.getElementById("partie").style.display = "none";
                 document.getElementById("index-box").style.display = "block";
                 document.body.style.backgroundImage = "url(images/fond_accueil.png)";
+                document.documentElement.style.setProperty('--main-color', 'rgb(1, 139, 231)'); 
             } else {
-                document.getElementById("partie").style.display = "block";
+                document.getElementById("partie").style.display = "flex";
                 Jeu.plateau.afficherPlateau();
                 Affichage.infosTour();
             }
-        }
-    }
-    
-
-    static regles(){
-        if (document.getElementById("regles-texte").style.display == "none") {
-            document.getElementById("regles-texte").style.display = 'block';
-        } else {
-            document.getElementById("regles-texte").style.display="none";
         }
     }
 

@@ -1,10 +1,12 @@
 
-@font-face {
+@font-face 
+{
     font-family: "Roboto";
     src: url("fonts/Roboto.ttf") format("truetype");
 } 
 
-@font-face {
+@font-face 
+{
     font-family: "Opensans";
     src: url("fonts/Opensans.ttf") format("truetype");
 }
@@ -17,8 +19,8 @@ body, html
 body
 {
     background-image: url(images/fond_accueil.png);
-    background-repeat: repeat;
-    background-size: 2000px;
+    background-repeat: repeat;    
+    background-size: cover;    
     font-family: "Roboto";
     color: rgb(0, 0, 0);
     margin: 0px;
@@ -34,7 +36,7 @@ body
 
 a
 {
-    color: rgb(0, 115, 192);
+    color: var(--main-color);
     font-weight: bold;
     text-decoration: none;
     transition-property: color;
@@ -48,12 +50,12 @@ a:hover
 
 a:visited
 {
-	color: rgb(0, 115, 192);
+	color:var(--main-color);
 }
 
 em
 {
-    color: rgb(0, 115, 192);
+    color: var(--main-color);
     font-weight: bold;
     font-style: initial;
 }
@@ -77,7 +79,7 @@ h2
     font-weight: 900;
     margin: 0;
     text-transform: uppercase;
-    color: rgb(1, 139, 231);
+    color: var(--main-color);
 }
 
 h3 
@@ -86,7 +88,7 @@ h3
     font-weight: 900;
     margin: 0;
     text-transform: uppercase;
-    color: rgb(1, 139, 231);
+    color: rgb(255, 255, 255);
 }
 
 p
@@ -98,7 +100,8 @@ p
 
 
 
-input {
+input 
+{
     border-radius: 10px;
     border: none;
     text-align: center;
@@ -106,41 +109,15 @@ input {
     height: 25px;
 }
 
-table, td, th {
-    border: 1px solid black;
-}
-
-table {
-    border-collapse: collapse;
-    border-color: rgb(0, 0, 0);
-    margin: auto;
-    margin-top: 4%;
-    margin-bottom: 4%;
-    background-color: rgb(255, 255, 255);
-}
-
-td {
-    width: 30px;
-    height: 30px;
-}
-
-td:hover {
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.418);
-}
-
-td img {
-    width: 20px;
-    height: 20px;
-    margin-top: 4px;
-}
-
 /* Modes de Jeu */
-.centrerV {
+.centrerV 
+{
     margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
     transform: translateY(-50%); 
 }
 
-#modes {
+#modes 
+{
     z-index: 50;
     display: flex;
     align-items: center;
@@ -149,13 +126,15 @@ td img {
     height: 250px;
 }
 
-#facile, #facile:hover ~ #normal, #difficile:hover ~ #normal, #difficile {
+#facile, #facile:hover ~ #normal, #difficile:hover ~ #normal, #difficile 
+{
     animation-name: modes-hover-petit;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
 }
 
-#facile:hover, #normal, #difficile:hover {
+#facile:hover, #normal, #difficile:hover 
+{
     animation-name: modes-hover-grand;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
@@ -205,27 +184,31 @@ td img {
     }
 }
 
-#facile, #normal, #difficile {
+#facile, #normal, #difficile 
+{
     color: white;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
 }
 
-#facile {
+#facile 
+{
     background-image: url(images/mode_facile.jpg);
     background-size: 200%;
     background-position: 50% 0;
     order:1;
 }
 
-#normal {
+#normal 
+{
     background-image: url(images/mode_normal.jpg);
     background-size: 120%;
     order:2;
 }
 
-#difficile {
+#difficile 
+{
     background-image: url(images/mode_difficile.jpg);
     background-size: 140%;
     order:3;
@@ -233,7 +216,8 @@ td img {
 
 /* Initialisation */
 
-#initialisation {
+#initialisation 
+{
     width: 300px;
     height: 380px;
     margin-left: auto;
@@ -244,36 +228,28 @@ td img {
     text-align: center;
 }
 
-#initialisation div:nth-child(1) {
+#initialisation div:nth-child(1) 
+{
     width: 100%;
     height: 320px;
     padding: 15px 0 0 0;
 }
 
-#initialisation label {
+#initialisation label 
+{
     display: inline-block;
     width: 100%;
     font-weight: bold;
     margin: 30px 0 10px 0;
 }
 
-#partie {
-    display: none;
-}
-
-.case-bateau { 
-    background-color: rgb(0, 115, 192);
-}
-
-.case-tire {
-    background-color: rgb(0, 217, 255);
-}
-
-.case-proche {
+.case-proche 
+{
     background-color: rgb(255, 153, 0);
 }
 
-#transition {
+#transition 
+{
     display: none;
     width: 400px;
     height: 200px;
@@ -284,26 +260,29 @@ td img {
     border-radius: 20px;
 }
 
-#transition p {
+#transition p 
+{
     display: inline-block;
     margin: 30px 0 0 0;
     text-align: center;
 }
 
-.bouton {
+.bouton 
+{
     height: 50px;
     width: 100%;
     line-height: 50px;
     color: white;
     font-weight: bold;
-    background-color: rgb(1, 139, 231);
+    background-color: var(--main-color);
     border-radius: 0 0 20px 20px;
     border-bottom: 8px solid rgb(13, 18, 22);
     margin-top: -6px;
     text-transform: uppercase;
 }
 
-.bouton:hover {
+.bouton:hover 
+{
     animation-name: bouton-hover;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
@@ -330,7 +309,8 @@ td img {
     }
 }
 
-.tips {
+.tips 
+{
     width: 80%;
     line-height: 30px;
     margin: 25px auto;
@@ -339,14 +319,16 @@ td img {
     background-color: rgb(235, 246, 255);
 }
 
-#options {
+#options 
+{
     z-index: 99;
     position: fixed;
     right: 50px;
     bottom: 50px;
 }
 
-#options-flex, #menu-boutons{
+#options-flex, #menu-boutons
+{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -357,25 +339,88 @@ td img {
 
 #menu-boutons {height: 136px; flex-direction: column-reverse;}
 
-#music-bouton {
+#music-bouton 
+{
     background-image: url(images/bouton_volume_on.svg);
 }
 
-#regles-bouton {
+#regles-bouton 
+{
     background-image: url(images/bouton_rules.svg);
     order: 1;
 }
 
-#home-bouton {
+#home-bouton 
+{
     background-image: url(images/bouton_home.svg);
     order: 2;
 }
 
-.bouton-menu {
+.bouton-menu 
+{
     width: 60px;
     height: 60px;
     border-radius: 30px;
     background-repeat: no-repeat;
     background-size: 70%;
     background-position: center;
+}
+
+#partie, #partie-infos
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#partie-infos 
+{
+    margin-bottom: 50px;
+}
+
+#partie-infos-tours
+{
+    z-index: 60;
+    order: 1;
+    width: 400px;
+    line-height: 50px;
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.521);
+}
+
+#partie-infos-nomJoueur
+{
+    z-index:55;
+    order: 2;
+    width: 200px;
+    line-height: 30px;
+    background-color: var(--main-color);
+}
+
+td 
+{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+}
+
+td:hover 
+{
+    position: relative;
+    z-index: 50;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.315);
+}
+
+td img 
+{
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+}
+
+:root {
+    --main-color: rgb(1, 139, 231);
 }

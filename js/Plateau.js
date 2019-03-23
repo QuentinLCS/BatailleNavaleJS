@@ -32,7 +32,7 @@ class Plateau {
     }
 
     genererPlateau() {
-        let texte = '<table class="centrerV">';
+        let texte = '<table>';
         for(let ligne = 0 ; ligne < this.taille ; ligne++) {
             texte += '<tr>';
             for(let colonne = 0 ; colonne < this.taille ; colonne++) {
