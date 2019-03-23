@@ -68,8 +68,10 @@ h1
 h2
 {
 	text-align: center;
-    font-weight: bold;
+    font-weight: 900;
     margin: 0;
+    text-transform: uppercase;
+    color: rgb(1, 139, 231);
 }
 
 p
@@ -226,18 +228,14 @@ nav h1 {
 /* Initialisation */
 
 #initialisation {
-    position: relative;
     width: 500px;
     height: 500px;
-    margin: 50px auto 50px auto;
-    border-top: 5px solid rgb(1, 158, 231);
-    background-color:rgba(102, 39, 3, 0.521);
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgb(255, 255, 255);
     border-radius: 20px;
-    padding: 5px 20px 5px 20px;
-    box-shadow: 0px 0px 50px rgb(255, 255, 255);
     display: none;
     text-align: center;
-
 }
 
 #regles-texte {
@@ -303,15 +301,7 @@ nav h1 {
     text-align: center;
 }
 
-
-
-#transition-prochain {
-    text-transform: uppercase;
-    color: rgb(1, 139, 231);
-    
-}
-
-#bouton-pret {
+.bouton {
     height: 50px;
     width: 100%;
     line-height: 50px;
@@ -321,6 +311,7 @@ nav h1 {
     border-radius: 0 0 20px 20px;
     border-bottom: 8px solid rgb(13, 18, 22);
     margin-top: -6px;
+    text-transform: uppercase;
 }
 
 .bouton:hover {
