@@ -132,6 +132,7 @@ td img {
 }
 
 #modes {
+    z-index: 50;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,16 +248,6 @@ td img {
     margin: 30px 0 10px 0;
 }
 
-#regles-texte {
-    display: none;
-}
-
-#regles-bouton {
-    width: 100px;
-    height: 50px;
-    background-color: rgb(203, 31, 255);
-}
-
 #partie {
     display: none;
 }
@@ -350,19 +341,31 @@ td img {
 }
 
 #options {
+    z-index: 99;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+#options-flex, #menu-boutons{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
-    height: 140px;
-    background-color: azure;
-    margin: 5%;
 }
+
+#options-flex {height: 210px;}
+
+#menu-boutons {height: 136px;}
 
 #music-bouton {
     background-image: url(images/bouton_volume_on.svg);
     order: 2;
+}
+
+#regles-bouton {
+    background-image: url(images/bouton_rules.svg);
+    order: 3;
 }
 
 #home-bouton {

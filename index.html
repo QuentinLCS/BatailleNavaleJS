@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/Bateau.js"></script>
     <script type="text/javascript" src="js/Plateau.js"></script>
     <script type="text/javascript" src="js/Case.js"></script>
+    <script type="text/javascript" src="js/Affichage.js"></script>
 </head>
 <body>    
     <div id="index-box" class="centrerV">
@@ -37,23 +38,6 @@
     </div>
     <div id="partie">    
         <div id="infos"><div id="tours"></div><div id="nomJoueur"></div></div>
-        <div id="regles"
-            <div id="regles-bouton" class="cursor-click" onclick="Jeu.regleDuJeu()">Règles du jeu</div>
-            <div id="regles-texte">
-                Version multijoueur.</br>
-                Choisissez le nombre de bateau que vous souhaitez, et placer le(s) à votre guise. &#x26F4;</br>
-                Votre but est de faire couler tout les bateaux de votre adversaire. &#x1F571;</br>
-                Si vous touchez la case où se trouve le bateau adverse, vous le faites couler.</br>
-                Si vous touchez une case à moins de 6 cases du bateau adverse,</br>
-                Le chiffre vous indiquant le nombre de cases d'écart s'affiche.</br>
-                Ce sera alors à vous de déduire sa position exacte.</br>
-                Si vous êtes à plus de 6 cases, rien ne s'affiche et votre tour passe.</br>
-                <strong> Facile: </strong> Plateau de 10 cases sur 10.</br>
-                <strong> normal: </strong> Plateau de 15 cases sur 15.</br>
-                <strong> Difficile: </strong> Plateau de 20 cases sur 20. Lorsque vous êtes à moins de 6 cases du bateau adverse,</br>
-                Celui-ci se positionne à l'opposé de sa position initiale, relativement à vous.</br>
-            </div>
-        </div>
         <div id="plateau"></div>
     </div>
     <div id="transition" class="centrerV">
@@ -64,8 +48,23 @@
         </div>
         <div id="bouton-pret" class="bouton cursor-click" onclick="Jeu.transition(false)"></div>
     </div>
+    <div id="regles-texte" style="display: none;">
+            Version multijoueur.</br>
+            Choisissez le nombre de bateau que vous souhaitez, et placer le(s) à votre guise. &#x26F4;</br>
+            Votre but est de faire couler tout les bateaux de votre adversaire. &#x1F571;</br>
+            Si vous touchez la case où se trouve le bateau adverse, vous le faites couler.</br>
+            Si vous touchez une case à moins de 6 cases du bateau adverse,</br>
+            Le chiffre vous indiquant le nombre de cases d'écart s'affiche.</br>
+            Ce sera alors à vous de déduire sa position exacte.</br>
+            Si vous êtes à plus de 6 cases, rien ne s'affiche et votre tour passe.</br>
+            <strong> Facile: </strong> Plateau de 10 cases sur 10.</br>
+            <strong> normal: </strong> Plateau de 15 cases sur 15.</br>
+            <strong> Difficile: </strong> Plateau de 20 cases sur 20. Lorsque vous êtes à moins de 6 cases du bateau adverse,</br>
+            Celui-ci se positionne à l'opposé de sa position initiale, relativement à vous.</br>
+        </div>
     <div id="options">
-            <div id="home-bouton" class="bouton-menu bouton cursor-click" onclick="Jeu.transition(true)"></div>
+        <div id="options-flex">
+            <div id="menu-boutons"></div>
             <div id="music-bouton" class="bouton-menu bouton cursor-click" onclick="Jeu.music()">
                 <audio id="music" autoplay loop preload="auto">
                     <source src="audio/bgMusic.mp3" type="audio/mpeg">
@@ -73,5 +72,7 @@
                 </audio>
             </div>
         </div>
+    </div>
+
 </body>
 </html>
