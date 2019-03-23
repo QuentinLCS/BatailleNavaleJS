@@ -15,15 +15,6 @@
     <script type="text/javascript" src="js/Case.js"></script>
 </head>
 <body>    
-    <div id="options">
-        <div id="home-bouton" class="bouton-menu bouton cursor-click"></div>
-        <div id="music-bouton" class="bouton-menu bouton cursor-click" onclick="Jeu.music()">
-            <audio id="music" autoplay loop preload="auto">
-                <source src="audio/bgMusic.mp3" type="audio/mpeg">
-                Votre navigateur ne supporte pas la musique.
-            </audio>
-        </div>
-    </div>
     <div id="index-box" class="centrerV">
         <h1>Bataille Navale</h1>
         <div id="modes">
@@ -71,7 +62,16 @@
             <h2 id="transition-prochain"></h2>
             <div id="transition-tips" class="tips"></div>
         </div>
-        <div id="bouton-pret" class="bouton cursor-click" onclick="Jeu.transition()"></div>
+        <div id="bouton-pret" class="bouton cursor-click" onclick="Jeu.transition(false)"></div>
     </div>
+    <div id="options">
+            <div id="home-bouton" class="bouton-menu bouton cursor-click" onclick="Jeu.transition(true)"></div>
+            <div id="music-bouton" class="bouton-menu bouton cursor-click" onclick="Jeu.music()">
+                <audio id="music" autoplay loop preload="auto">
+                    <source src="audio/bgMusic.mp3" type="audio/mpeg">
+                    Votre navigateur ne supporte pas la musique.
+                </audio>
+            </div>
+        </div>
 </body>
 </html>

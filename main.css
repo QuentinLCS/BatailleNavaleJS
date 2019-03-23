@@ -9,6 +9,11 @@
     src: url("fonts/Opensans.ttf") format("truetype");
 }
 
+body, html
+{
+    height: 100%;
+}
+
 body
 {
     background-image: url(images/fond_accueil.png);
@@ -346,19 +351,26 @@ td img {
 
 #options {
     display: flex;
-    
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 140px;
+    background-color: azure;
+    margin: 5%;
 }
 
 #music-bouton {
     background-image: url(images/bouton_volume_on.svg);
+    order: 2;
 }
 
 #home-bouton {
-    background-image: url(images/bouton_volume_on.svg);
+    background-image: url(images/bouton_home.svg);
+    order: 1;
 }
 
 .bouton-menu {
-    position: absolute;
     width: 60px;
     height: 60px;
     border-radius: 30px;

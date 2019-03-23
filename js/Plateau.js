@@ -71,7 +71,7 @@ class Plateau {
         if (Jeu.plateau.getClickIsOn()) {
             Jeu.plateau.setClickIsOn(false);
             setTimeout(function() {
-                Jeu.transition();
+                Jeu.transition(false);
             }, 3000);
 
             let coordonnees = new Point(ligne, colonne);

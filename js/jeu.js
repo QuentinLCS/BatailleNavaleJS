@@ -34,7 +34,7 @@ class Jeu {
         Joueur.nbBateaux = document.init.nbBateaux.value;
         Jeu.joueurs = [new Joueur(0), new Joueur(1)];
         Jeu.numTour = 0;
-        Jeu.transition();
+        Jeu.transition(false);
     }
     
     static jeu(coordonnees) {
@@ -68,8 +68,8 @@ class Jeu {
 
     }
 
-    static transition() {
-        if (!Jeu.plateau.getClickIsOn()) {
+    static transition(forceHome) {
+        if (!Jeu.plateau.getClickIsOn() && !forceHome) {
             if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
                 document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
@@ -92,7 +92,8 @@ class Jeu {
             }           
         } else {
             document.getElementById("transition").style.display = "none";
-            if (Jeu.numTour == -1) {
+            if (Jeu.numTour == -1 || forceHome) {
+                document.getElementById("partie").style.display = "none";
                 document.getElementById("index-box").style.display = "block";
                 document.body.style.backgroundImage = "url(images/fond_accueil.png)";
             } else {
