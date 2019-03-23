@@ -36,7 +36,7 @@ body
 
 a
 {
-    color: var(--main-color);
+    color: rgb(var(--main-color));
     font-weight: bold;
     text-decoration: none;
     transition-property: color;
@@ -50,12 +50,12 @@ a:hover
 
 a:visited
 {
-	color:var(--main-color);
+	color: rgb(var(--main-color));
 }
 
 em
 {
-    color: var(--main-color);
+    color: rgb(var(--main-color));
     font-weight: bold;
     font-style: initial;
 }
@@ -79,7 +79,7 @@ h2
     font-weight: 900;
     margin: 0;
     text-transform: uppercase;
-    color: var(--main-color);
+    color: rgb(var(--main-color));
 }
 
 h3 
@@ -96,6 +96,7 @@ p
     text-align: justify;
     word-wrap: break-word;
     margin: 0;
+    padding: 0;
 }
 
 
@@ -274,7 +275,7 @@ input
     line-height: 50px;
     color: white;
     font-weight: bold;
-    background-color: var(--main-color);
+    background-color: rgb(var(--main-color));
     border-radius: 0 0 20px 20px;
     border-bottom: 8px solid rgb(13, 18, 22);
     margin-top: -6px;
@@ -314,9 +315,9 @@ input
     width: 80%;
     line-height: 30px;
     margin: 25px auto;
-    color: rgb(74, 179, 250);
     border-radius: 10px;
-    background-color: rgb(235, 246, 255);
+    color: rgba(var(--main-color), 0.5);
+    background-color: rgba(var(--main-color), 0.15);
 }
 
 #options 
@@ -397,7 +398,7 @@ input
     order: 2;
     width: 200px;
     line-height: 30px;
-    background-color: var(--main-color);
+    background-color: rgb(var(--main-color));
 }
 
 td 
@@ -422,5 +423,5 @@ td img
 }
 
 :root {
-    --main-color: rgb(1, 139, 231);
+    --main-color: 1, 139, 231;
 }

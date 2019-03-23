@@ -11,14 +11,14 @@ class Jeu {
         switch (mode) {
             case 1:
                 Jeu.plateau.setTaille(10);
-                document.documentElement.style.setProperty('--main-color', 'rgb(34, 175, 194)');
+                document.documentElement.style.setProperty('--main-color', '34, 175, 194');
                 break;
             case 2:
                 Jeu.plateau.setTaille(15);
                 break;
             case 3:
                 Jeu.plateau.setTaille(20);
-                document.documentElement.style.setProperty('--main-color', 'rgb(103, 34, 194)'); 
+                document.documentElement.style.setProperty('--main-color', '103, 34, 194'); 
                 break;
         }
         
@@ -101,7 +101,7 @@ class Jeu {
                 document.getElementById("partie").style.display = "none";
                 document.getElementById("index-box").style.display = "block";
                 document.body.style.backgroundImage = "url(images/fond_accueil.png)";
-                document.documentElement.style.setProperty('--main-color', 'rgb(1, 139, 231)'); 
+                document.documentElement.style.setProperty('--main-color', '1, 139, 231'); 
             } else {
                 document.getElementById("partie").style.display = "flex";
                 Jeu.plateau.afficherPlateau();
