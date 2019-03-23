@@ -42,17 +42,23 @@ class Jeu {
 
         for (let i = 0; i < Joueur.nbBateaux; i++) {
             if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == 0) {
+
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTouche(Plateau.i, true);
                 Jeu.joueurs[adversaire].bateaux[i].points[0].setTouche(true, adversaire);
+
                 if (Jeu.joueurs[Plateau.i].bateaux[i].getCoule()) {
+
                     Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setBateau(false);
                     Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setCoule(Plateau.i, true);
+                
                 }
-            } else if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1) {
+            } 
+            
+            else if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1)
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTire(Plateau.i, true);
-            } else {
+            
+            else 
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
-            }
         }
         
         Jeu.plateau.afficherPlateau();
@@ -61,20 +67,31 @@ class Jeu {
 
     static transition() {
         if (!Jeu.plateau.getClickIsOn()) {
-            Plateau.i<1 ? Plateau.i++ : Plateau.i--;
+            if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
+                document.getElementById("transition-texte").innerHTML = "Victoire de";
+                document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
+                document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
+                Jeu.numTour = -1;
+            } else
+                Plateau.i<1 ? Plateau.i++ : Plateau.i--;
             document.getElementById("partie").style.display = "none";
             document.getElementById("transition").style.display = "block";
             document.getElementById("transition-prochain").innerHTML = Jeu.joueurs[Plateau.i].getNom();
             Jeu.plateau.setClickIsOn(true);
-            if (Jeu.numTour) {
-                document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
-            } else
+            if (!Jeu.numTour)
                 Jeu.numTour = 1;
+            else
+                document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
         } else {
             document.getElementById("transition").style.display = "none";
-            document.getElementById("partie").style.display = "block";
-            Jeu.plateau.afficherPlateau();
-            Jeu.joueurs[Plateau.i].affichageJoueur();
+            if (Jeu.numTour == -1) {
+                document.getElementById("index-box").style.display = "block";
+                document.body.style.backgroundImage = "url(images/fond_accueil.png)";
+            } else {
+                document.getElementById("partie").style.display = "block";
+                Jeu.plateau.afficherPlateau();
+                Jeu.joueurs[Plateau.i].affichageJoueur();
+            }
         }
     }
     

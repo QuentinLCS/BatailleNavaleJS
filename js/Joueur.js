@@ -12,7 +12,7 @@ class Joueur {
                 this.nom = "Joueur " +(numJoueur+1);
         this.bateaux = [];
         this.estInit = false;
-        
+        this.nbBateauxVivants = Joueur.nbBateaux;
     }
 
     getNom() {
@@ -23,12 +23,20 @@ class Joueur {
         return this.estInit;
     }
 
+    getNbBateauxVivants() {
+        return this.nbBateauxVivants;
+    }
+
     setNom(nom) {
         this.nom = nom;
     }
 
     setEstInit(estInit) {
         this.estInit = estInit;
+    }
+
+    setNbBateauxVivants(nbBateauxVivants) {
+        this.nbBateauxVivants = nbBateauxVivants;
     }
 
     affichageJoueur() {

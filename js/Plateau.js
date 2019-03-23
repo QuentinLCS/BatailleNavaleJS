@@ -62,8 +62,6 @@ class Plateau {
         return texte;
     }
 
-
-
     afficherPlateau() {
         document.getElementById("plateau").innerHTML = this.genererPlateau();
     }

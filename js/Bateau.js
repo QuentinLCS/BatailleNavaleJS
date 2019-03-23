@@ -17,6 +17,9 @@ class Bateau {
 
     setCoule(estCoule) {
         this.coule = estCoule;
+
+        if (estCoule) 
+            Jeu.joueurs[Plateau.i].setNbBateauxVivants(Jeu.joueurs[Plateau.i].getNbBateauxVivants()-1);
     }
 
     static initBateaux(coordonnees) {

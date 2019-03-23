@@ -32,16 +32,13 @@ class Point {
         this.touche = newVal;
 
         for (let i = 0; i < Jeu.joueurs[Plateau.i].bateaux[Plateau.j].points.length; i++) {
-            console.log("for");
             if (Jeu.joueurs[adversaire].bateaux[Plateau.j].points[i].getTouche()) {
                 j++;
-                console.log(j);
             }
         }
 
         if (Jeu.joueurs[Plateau.i].bateaux[Plateau.j].points.length == j)
             Jeu.joueurs[Plateau.i].bateaux[Plateau.j].setCoule(true);
-        console.log("1: "+Jeu.joueurs[0].bateaux[0].getCoule()+" / 2: "+Jeu.joueurs[1].bateaux[0].getCoule());
     }
 
     estTouche(p) {
