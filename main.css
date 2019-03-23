@@ -439,7 +439,7 @@ td img
     top: 0;
     width: 100%;
     height: 100%;
-    animation-name: regles-apparition;
+    animation-name: popup-apparition;
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
 }
@@ -464,7 +464,7 @@ td img
 
 
 
-@keyframes regles-apparition
+@keyframes popup-apparition
 {
     from {
         display: none;
