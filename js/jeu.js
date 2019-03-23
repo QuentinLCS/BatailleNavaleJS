@@ -28,12 +28,13 @@ class Jeu {
     static lancerPartie() {
 
         document.getElementById("initialisation").style.display = "none";
-        tours.innerHTML = "<p><h2>Veuillez choisir vos bateaux</h2></p>";
-        Jeu.plateau.afficherPlateau();
+        document.getElementById("partie").style.display = "block";
+        document.getElementById("tours").innerHTML = "<p><h2>Veuillez choisir vos bateaux</h2></p>";
 
         Joueur.nbBateaux = document.init.nbBateaux.value;
         Jeu.joueurs = [new Joueur(0), new Joueur(1)];
         Jeu.numTour = 0;
+        Jeu.transition();
     }
     
     static jeu(coordonnees) {
@@ -60,6 +61,8 @@ class Jeu {
             else 
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
         }
+
+        Jeu.numTour += Plateau.i;
         
         Jeu.plateau.afficherPlateau();
 
@@ -72,16 +75,21 @@ class Jeu {
                 document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
                 Jeu.numTour = -1;
-            } else
+            } else {
                 Plateau.i<1 ? Plateau.i++ : Plateau.i--;
+                document.getElementById("transition-texte").innerHTML = "Au tour de";
+                document.getElementById("transition-tips").innerHTML = "TIPS : Cachez l'écran à votre adversaire !";
+                document.getElementById("bouton-pret").innerHTML = "PRET";
+            }
+                
             document.getElementById("partie").style.display = "none";
             document.getElementById("transition").style.display = "block";
             document.getElementById("transition-prochain").innerHTML = Jeu.joueurs[Plateau.i].getNom();
             Jeu.plateau.setClickIsOn(true);
-            if (!Jeu.numTour)
+            if (!Jeu.numTour && Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit()) {
                 Jeu.numTour = 1;
-            else
-                document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
+                document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";    
+            }           
         } else {
             document.getElementById("transition").style.display = "none";
             if (Jeu.numTour == -1) {

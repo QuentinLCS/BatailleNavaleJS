@@ -40,8 +40,8 @@ class Joueur {
     }
 
     affichageJoueur() {
-        tours.innerHTML = "<p><h2>Tour n°" +Jeu.numTour+ "</h2></p>";
-        nomJoueur.innerHTML = "<p><h2>" +Jeu.joueurs[Plateau.i].getNom()+ "</h2></p>"
+        document.getElementById("tours").innerHTML = "<p><h2>Tour n°" +Jeu.numTour+ "</h2></p>";
+        document.getElementById("nomJoueur").innerHTML = "<p><h2>" +Jeu.joueurs[Plateau.i].getNom()+ "</h2></p>"
     }
     
 }

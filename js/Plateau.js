@@ -4,8 +4,8 @@ class Plateau {
     j;
 
     constructor() {
-        Plateau.i = 0; Plateau.j = 0;
-        this.clickIsOn = true;
+        Plateau.i = 1; Plateau.j = 0;
+        this.clickIsOn = false;
         this.tableau = [];
         this.taille;      
     }
@@ -32,11 +32,11 @@ class Plateau {
     }
 
     genererPlateau() {
-        let texte = '<table border="1">';
+        let texte = '<table class="centrerV">';
         for(let ligne = 0 ; ligne < this.taille ; ligne++) {
             texte += '<tr>';
             for(let colonne = 0 ; colonne < this.taille ; colonne++) {
-                texte += '<td align="center" width=30 height=30 '
+                texte += '<td align="center"'
                 if (this.tableau[ligne][colonne].getCoule(Plateau.i == 1 ? 0 : 1)) 
                     texte += 'class="cursor-impossible"> <img src="images/coule.svg" alt="mort">';
                 else if (this.tableau[ligne][colonne].getCoule(Plateau.i)) 
