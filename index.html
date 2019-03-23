@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bataille Navale</title>
+    <title>Bataille Navale - QuentinLCS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <link rel="shortcut icon" href="images/cursorWhite.png" type="image/x-icon">
@@ -48,20 +48,25 @@
         </div>
         <div id="bouton-pret" class="bouton cursor-click" onclick="Jeu.transition(false)"></div>
     </div>
-    <div id="regles-texte" style="display: none;">
-            Version multijoueur.</br>
-            Choisissez le nombre de bateau que vous souhaitez, et placer le(s) à votre guise. &#x26F4;</br>
-            Votre but est de faire couler tout les bateaux de votre adversaire. &#x1F571;</br>
-            Si vous touchez la case où se trouve le bateau adverse, vous le faites couler.</br>
-            Si vous touchez une case à moins de 6 cases du bateau adverse,</br>
-            Le chiffre vous indiquant le nombre de cases d'écart s'affiche.</br>
-            Ce sera alors à vous de déduire sa position exacte.</br>
-            Si vous êtes à plus de 6 cases, rien ne s'affiche et votre tour passe.</br>
-            <strong> Facile: </strong> Plateau de 10 cases sur 10.</br>
-            <strong> normal: </strong> Plateau de 15 cases sur 15.</br>
-            <strong> Difficile: </strong> Plateau de 20 cases sur 20. Lorsque vous êtes à moins de 6 cases du bateau adverse,</br>
-            Celui-ci se positionne à l'opposé de sa position initiale, relativement à vous.</br>
-        </div>
+    <div id="regles">
+        <div id="regles-texte" class="centrerV">
+                <h2>REGLES DU JEU</h2>
+                <label>Difficulté : <em>Facile</em></e></label>
+                <p>Choisissez le nombre de bateau que vous souhaitez, et placer le(s) à votre guise. ⚓
+                    Votre but est de faire couler tout les bateaux de votre adversaire. 
+                    Si vous touchez la case où se trouve le bateau adverse, vous le faites couler.
+                    Si vous touchez une case à moins de 6 cases du bateau adverse,
+                    Le chiffre vous indiquant le nombre de cases d'écart s'affiche.
+                    Ce sera alors à vous de déduire sa position exacte.
+                    Si vous êtes à plus de 6 cases, rien ne s'affiche et votre tour passe.</p>
+                    <ul>
+                        <li><em> Facile: </em> Plateau de 10 cases sur 10.</li>
+                        <li> <em> Normal: </em> Plateau de 15 cases sur 15.</li>
+                        <li><em> Difficile: </em> Plateau de 20 cases sur 20. Lorsque vous êtes à moins de 6 cases du bateau adverse, celui-ci se positionne à l'opposé de sa position initiale, relativement à vous.</li>
+                    </ul>
+                    <div class="bouton cursor-click" onclick="Affichage.regles(false)">Revenir au jeu</div>
+        </div>    
+    </div>
     <div id="options">
         <div id="options-flex">
             <div id="menu-boutons"></div>

@@ -4,7 +4,7 @@ class Affichage {
         
         switch (mode) {
             case 2:
-                texte += '<div id="regles-bouton" class="bouton-menu bouton cursor-click" onclick="Affichage.regles()"></div>'
+                texte += '<div id="regles-bouton" class="bouton-menu bouton cursor-click" onclick="Affichage.regles(false)"></div>'
             case 1:
                 texte += '<div id="home-bouton" class="bouton-menu bouton cursor-click" onclick="Jeu.transition(true)"></div>';
                 break;
@@ -21,11 +21,11 @@ class Affichage {
         document.getElementById("partie-infos-nomJoueur").innerHTML = "<p><h3>" +Jeu.joueurs[Plateau.i].getNom()+ "</h3></p>"
     }
 
-    static regles(){
-        if (document.getElementById("regles-texte").style.display == "none") {
-            document.getElementById("regles-texte").style.display = 'block';
+    static regles(forceDesactiver){
+        if (document.getElementById("regles").style.display == "none" && !forceDesactiver) {
+            document.getElementById("regles").style.display = 'block';
         } else {
-            document.getElementById("regles-texte").style.display="none";
+            document.getElementById("regles").style.display="none";
         }
     }
 }

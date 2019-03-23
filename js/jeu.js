@@ -71,6 +71,7 @@ class Jeu {
     }
 
     static transition(forceHome) {
+        Affichage.regles(true);
         if (!Jeu.plateau.getClickIsOn() && !forceHome) {
             if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
