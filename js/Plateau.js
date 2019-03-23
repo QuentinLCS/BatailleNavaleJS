@@ -63,7 +63,7 @@ class Plateau {
     }
 
     afficherPlateau() {
-        document.getElementById("plateau").innerHTML = this.genererPlateau();
+        document.getElementById("partie-plateau").innerHTML = this.genererPlateau();
     }
 
     cliquerCase(ligne, colonne) { 

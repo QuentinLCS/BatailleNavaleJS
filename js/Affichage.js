@@ -14,10 +14,10 @@ class Affichage {
 
     static infosTour() {
         if (!Jeu.numTour) {
-            document.getElementById("tours").innerHTML = "<p><h2>Veuillez choisir vos bateaux</h2></p>";
+            document.getElementById("partie-infos-tours").innerHTML = "<p><h2>Veuillez choisir vos bateaux</h2></p>";
         } else {
-            document.getElementById("tours").innerHTML = "<p><h2>Tour n°" +Jeu.numTour+ "</h2></p>";
+            document.getElementById("partie-infos-tours").innerHTML = "<p><h2>Tour n°" +Jeu.numTour+ "</h2></p>";
         }
-        document.getElementById("nomJoueur").innerHTML = "<p><h2>" +Jeu.joueurs[Plateau.i].getNom()+ "</h2></p>"
+        document.getElementById("partie-infos-nomJoueur").innerHTML = "<p><h3>" +Jeu.joueurs[Plateau.i].getNom()+ "</h3></p>"
     }
 }
