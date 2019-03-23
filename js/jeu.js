@@ -112,5 +112,15 @@ class Jeu {
         }
     }
 
+    static music() {
+        if (document.getElementById("music").muted) {
+            document.getElementById("music").muted = false;
+            document.getElementById("music-bouton").style.backgroundImage = "url(images/volume_on.svg)";
+        } else {
+            document.getElementById("music").muted = true;
+            document.getElementById("music-bouton").style.backgroundImage = "url(images/volume_off.svg)";
+        }
+    }
+
 }
 // document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case

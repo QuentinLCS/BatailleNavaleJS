@@ -15,12 +15,12 @@
     <script type="text/javascript" src="js/Case.js"></script>
 </head>
 <body>    
-    <nav>
-        <audio controls loop preload="auto">
+    <div id="music-bouton" class="bouton cursor-click" onclick="Jeu.music()">
+        <audio id="music" autoplay loop preload="auto">
             <source src="audio/bgMusic.mp3" type="audio/mpeg">
             Votre navigateur ne supporte pas la musique.
         </audio>
-    </nav>
+    </div>
     <div id="index-box" class="centrerV">
         <h1>Bataille Navale</h1>
         <div id="modes">
@@ -30,20 +30,20 @@
         </div>
     </div>
     <div id="initialisation" class="centrerV">
-            <div>
-                <h2>Initialisation</h2>
-                <form name='init'>
-                        <div class="joueur"><label>Joueur 1: </label><input type='text' name='nomJoueur1'></div>
-                        <div class="joueur"><label>Joueur 2: </label><input type='text' name='nomJoueur2'></div>
-                        <div class="joueur"><label>Nombre de bateaux: </label><input type="number" name="nbBateaux" step="1" value="1" min="1" max="3"></div>
-                </form>
-                <div id="initialisation-tips" class="tips"></div>
-            </div>
-            <div id="initialisation-bouton" class="bouton" onclick="Jeu.lancerPartie()">Commencer la partie !</div>
+        <div>
+            <h2>Initialisation</h2>
+            <form name='init'>
+                <label>Joueur 1: </label><input type='text' name='nomJoueur1'>
+                <label>Joueur 2: </label><input type='text' name='nomJoueur2'>
+                <label>Nombre de bateaux: </label><input type="number" name="nbBateaux" step="1" value="1" min="1" max="3">
+            </form>
+            <div id="initialisation-tips" class="tips"></div>
+        </div>
+        <div class="bouton cursor-click" onclick="Jeu.lancerPartie()">Commencer la partie !</div>
     </div>
     <div id="partie">    
         <div id="infos"><div id="tours"></div><div id="nomJoueur"></div></div>
-        <div id="regles">
+        <div id="regles"
             <div id="regles-bouton" class="cursor-click" onclick="Jeu.regleDuJeu()">Règles du jeu</div>
             <div id="regles-texte">
                 Version multijoueur.</br>
