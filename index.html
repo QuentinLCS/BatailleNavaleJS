@@ -15,11 +15,14 @@
     <script type="text/javascript" src="js/Case.js"></script>
 </head>
 <body>    
-    <div id="music-bouton" class="bouton cursor-click" onclick="Jeu.music()">
-        <audio id="music" autoplay loop preload="auto">
-            <source src="audio/bgMusic.mp3" type="audio/mpeg">
-            Votre navigateur ne supporte pas la musique.
-        </audio>
+    <div id="options">
+        <div id="home-bouton" class="bouton-menu bouton cursor-click"></div>
+        <div id="music-bouton" class="bouton-menu bouton cursor-click" onclick="Jeu.music()">
+            <audio id="music" autoplay loop preload="auto">
+                <source src="audio/bgMusic.mp3" type="audio/mpeg">
+                Votre navigateur ne supporte pas la musique.
+            </audio>
+        </div>
     </div>
     <div id="index-box" class="centrerV">
         <h1>Bataille Navale</h1>

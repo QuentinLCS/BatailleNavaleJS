@@ -82,18 +82,7 @@ p
     margin: 0;
 }
 
-#music-bouton {
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    background-image: url(images/volume_on.svg);
-    background-repeat: no-repeat;
-    background-size: 70%;
-    background-position: center;
-}
+
 
 input {
     border-radius: 10px;
@@ -353,4 +342,27 @@ td img {
     color: rgb(74, 179, 250);
     border-radius: 10px;
     background-color: rgb(235, 246, 255);
+}
+
+#options {
+    display: flex;
+    
+}
+
+#music-bouton {
+    background-image: url(images/bouton_volume_on.svg);
+}
+
+#home-bouton {
+    background-image: url(images/bouton_volume_on.svg);
+}
+
+.bouton-menu {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
 }

@@ -38,9 +38,9 @@ class Plateau {
             for(let colonne = 0 ; colonne < this.taille ; colonne++) {
                 texte += '<td align="center"'
                 if (this.tableau[ligne][colonne].getCoule(Plateau.i == 1 ? 0 : 1)) 
-                    texte += 'class="cursor-impossible"> <img src="images/coule.svg" alt="mort">';
+                    texte += 'class="cursor-impossible"> <img src="images/jeu_coule.svg" alt="mort">';
                 else if (this.tableau[ligne][colonne].getCoule(Plateau.i)) 
-                    texte += 'class="cursor-impossible"> <img src="images/checked.svg" alt="tué">';  
+                    texte += 'class="cursor-impossible"> <img src="images/jeu_checked.svg" alt="tué">';  
                 else if (this.tableau[ligne][colonne].getTire(Plateau.i)) 
                     if (this.tableau[ligne][colonne].getBateau(Plateau.i))
                         texte += 'class="case-tire cursor-impossible" > ⚓ ';
@@ -51,7 +51,7 @@ class Plateau {
                 else if (this.tableau[ligne][colonne].getProche(Plateau.i)) 
                     texte += 'class="case-proche cursor-impossible"> ';
                 else if (this.tableau[ligne][colonne].getTouche(Plateau.i)) 
-                    texte += 'class="cursor-impossible"> <img src="images/touche.svg" alt="touché"> ';
+                    texte += 'class="cursor-impossible"> <img src="images/jeu_touche.svg" alt="touché"> ';
                 else 
                     texte += 'class="cursor-targetB" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ';
                 texte += '</td>';
