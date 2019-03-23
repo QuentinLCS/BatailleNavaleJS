@@ -46,11 +46,14 @@ class Plateau {
                         texte += 'class="case-tire cursor-impossible" > ⚓ ';
                     else
                         texte += 'class="case-tire cursor-impossible" > ';
+                else if (this.tableau[ligne][colonne].getProche(Plateau.i) && this.getTaille() == 10) 
+                    if (this.tableau[ligne][colonne].getBateau(Plateau.i))
+                        texte += 'class="case-proche cursor-impossible"> ⚓ ';
+                    else
+                        texte += 'class="case-proche cursor-impossible"> ';
                 else if (this.tableau[ligne][colonne].getBateau(Plateau.i)) 
-                    texte += 'class="cursor-targetW" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ⚓ ';
-                else if (this.tableau[ligne][colonne].getProche(Plateau.i)) 
-                    texte += 'class="case-proche cursor-impossible"> ';
-                else if (this.tableau[ligne][colonne].getTouche(Plateau.i)) 
+                    texte += 'class="cursor-targetB" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ⚓ ';
+                else if (this.tableau[ligne][colonne].getTouche(Plateau.i) ) 
                     texte += 'class="cursor-impossible"> <img src="images/jeu_touche.svg" alt="touché"> ';
                 else 
                     texte += 'class="cursor-targetB" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ';
@@ -69,6 +72,7 @@ class Plateau {
     cliquerCase(ligne, colonne) { 
 
         if (Jeu.plateau.getClickIsOn()) {
+
             Jeu.plateau.setClickIsOn(false);
             setTimeout(function() {
                 Jeu.transition(false);
@@ -80,5 +84,7 @@ class Plateau {
             else
                 Jeu.jeu(coordonnees);
         }
+        Affichage.curseursTransition();
+
     }    
 }

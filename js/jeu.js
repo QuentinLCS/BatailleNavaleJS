@@ -43,6 +43,8 @@ class Jeu {
 
         let adversaire = Plateau.i == 1 ? 0 : 1;
 
+        
+
         for (let i = 0; i < Joueur.nbBateaux; i++) {
             if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == 0) {
 
@@ -57,15 +59,16 @@ class Jeu {
                 }
             } 
             
-            else if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1)
+            else if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1) {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTire(Plateau.i, true);
+            }
             
             else 
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
         }
 
         Jeu.numTour += Plateau.i;
-        
+
         Jeu.plateau.afficherPlateau();
 
     }
@@ -120,6 +123,5 @@ class Jeu {
             document.getElementById("music-bouton").style.backgroundImage = "url(images/bouton_volume_off.svg)";
         }
     }
-
 }
 // document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case

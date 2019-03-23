@@ -21,11 +21,29 @@ class Affichage {
         document.getElementById("partie-infos-nomJoueur").innerHTML = "<p><h3>" +Jeu.joueurs[Plateau.i].getNom()+ "</h3></p>"
     }
 
-    static regles(forceDesactiver){
+    static regles(forceDesactiver) {
         if (document.getElementById("regles").style.display == "none" && !forceDesactiver) {
             document.getElementById("regles").style.display = 'block';
         } else {
             document.getElementById("regles").style.display="none";
+        }
+    }
+
+    static curseursTransition() {
+        let CursorTargetBList = document.getElementsByClassName("cursor-targetB");
+        let CursorImpossible = document.getElementsByClassName("cursor-impossible");
+
+        
+        for(let i = 0; i < (CursorImpossible.length >= CursorTargetBList.length ? CursorTargetImpossible.length : CursorTargetBList.length); i++)
+        {           
+            
+            if (i < CursorImpossible.length) {
+                CursorImpossible[i].classList.add("cursor-wait");
+            }
+        
+            if (i < CursorTargetBList.length) {
+                CursorTargetBList[i].classList.add("cursor-wait");
+            }
         }
     }
 }

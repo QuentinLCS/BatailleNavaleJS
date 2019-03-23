@@ -32,6 +32,7 @@ body
 .cursor-targetB {cursor: url(images/cursorBlack.png)8 6, default;}
 .cursor-click {cursor: pointer;}
 .cursor-impossible {cursor: not-allowed;}
+.cursor-wait {cursor: progress;}
 
 
 a
