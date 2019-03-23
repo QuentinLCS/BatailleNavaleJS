@@ -36,15 +36,24 @@ class Plateau {
         for(let ligne = 0 ; ligne < this.taille ; ligne++) {
             texte += '<tr>';
             for(let colonne = 0 ; colonne < this.taille ; colonne++) {
-                if (this.tableau[ligne][colonne].getTire(Plateau.i)) {
-                    texte += '<td class="case-tire cursor-impossible" align="center" width=30 height=30> ';
-                } else if (this.tableau[ligne][colonne].getProche(Plateau.i)) {
-                    texte += '<td class="case-proche cursor-impossible" align="center" width=30 height=30>';
-                } else if (this.tableau[ligne][colonne].getBateau(Plateau.i)) {
-                    texte += '<td class="cursor-targetW" align="center" width=30 height=30 onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ⚓ ';
-                } else {
-                    texte += '<td align="center" class="cursor-targetB" width=30 height=30 onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ';
-                }
+                texte += '<td align="center" width=30 height=30 '
+                if (this.tableau[ligne][colonne].getCoule(Plateau.i == 1 ? 0 : 1)) 
+                    texte += 'class="cursor-impossible"> <img src="images/coule.svg" alt="mort">';
+                else if (this.tableau[ligne][colonne].getCoule(Plateau.i)) 
+                    texte += 'class="cursor-impossible"> <img src="images/checked.svg" alt="tué">';  
+                else if (this.tableau[ligne][colonne].getTire(Plateau.i)) 
+                    if (this.tableau[ligne][colonne].getBateau(Plateau.i))
+                        texte += 'class="case-tire cursor-impossible" > ⚓ ';
+                    else
+                        texte += 'class="case-tire cursor-impossible" > ';
+                else if (this.tableau[ligne][colonne].getBateau(Plateau.i)) 
+                    texte += 'class="cursor-targetW" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ⚓ ';
+                else if (this.tableau[ligne][colonne].getProche(Plateau.i)) 
+                    texte += 'class="case-proche cursor-impossible"> ';
+                else if (this.tableau[ligne][colonne].getTouche(Plateau.i)) 
+                    texte += 'class="cursor-impossible"> <img src="images/touche.svg" alt="touché"> ';
+                else 
+                    texte += 'class="cursor-targetB" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ';
                 texte += '</td>';
             }
             texte += '</tr>';
@@ -65,15 +74,13 @@ class Plateau {
             Jeu.plateau.setClickIsOn(false);
             setTimeout(function() {
                 Jeu.transition();
-            }, 5000);
+            }, 3000);
 
             let coordonnees = new Point(ligne, colonne);
-            if (!Jeu.joueurs[0].estInit || !Jeu.joueurs[1].estInit)
+            if (!Jeu.joueurs[0].getEstInit() || !Jeu.joueurs[1].getEstInit())
                 Bateau.initBateaux(coordonnees);            
-            if (Jeu.joueurs[0].estInit && Jeu.joueurs[1].estInit) {
-                Jeu.gestionTours();
-                if (Jeu.numTour > 0) Jeu.jeu(coordonnees);
-            }
+            else
+                Jeu.jeu(coordonnees);
         }
     }    
 }

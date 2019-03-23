@@ -9,7 +9,7 @@ class Joueur {
             else
                 this.nom = document.init.nomJoueur2.value;
             if (this.nom == "") 
-                this.nom = "Joueur " +numJoueur;
+                this.nom = "Joueur " +(numJoueur+1);
         this.bateaux = [];
         this.estInit = false;
         
@@ -19,8 +19,16 @@ class Joueur {
         return this.nom;
     }
 
+    getEstInit() {
+        return this.estInit;
+    }
+
     setNom(nom) {
         this.nom = nom;
+    }
+
+    setEstInit(estInit) {
+        this.estInit = estInit;
     }
 
     affichageJoueur() {

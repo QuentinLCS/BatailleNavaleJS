@@ -37,56 +37,47 @@ class Jeu {
     }
     
     static jeu(coordonnees) {
-        console.log("==== JEU ====");
-        console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
 
-        if (Jeu.numTour == 0) {
-            Plateau.i = 0;
-            Jeu.numTour = 1;
-        }
+        let adversaire = Plateau.i == 1 ? 0 : 1;
 
         for (let i = 0; i < Joueur.nbBateaux; i++) {
-            if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == 0) {
+            if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == 0) {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTouche(Plateau.i, true);
-                Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[Plateau.j].points[0].setTouche(true);
-                console.log("--------- Touche ! ---------");
-            } else if (Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1) {
-                console.log("--------- Pas touche ! ---------");
+                Jeu.joueurs[adversaire].bateaux[i].points[0].setTouche(true, adversaire);
+                if (Jeu.joueurs[Plateau.i].bateaux[i].getCoule()) {
+                    Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setBateau(false);
+                    Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setCoule(Plateau.i, true);
+                }
+            } else if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1) {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTire(Plateau.i, true);
             } else {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
-                console.log(Jeu.joueurs[Plateau.i == 1 ? 0 : 1].bateaux[i].getPoints()[0].estTouche(coordonnees));
             }
-        }      
-
-    }
-
-    static gestionTours() {
-
-        document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
-        console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
-        Jeu.joueurs[Plateau.i].affichageJoueur();
-        Plateau.i++;
-        Jeu.plateau.afficherPlateau();
-        console.log("gestionTours() i = "+Plateau.i+ "; numTour = " + Jeu.numTour);
-
-        if (Plateau.i > 1) {
-            Plateau.i = 0;
-            Jeu.numTour++;
         }
+        
+        Jeu.plateau.afficherPlateau();
+
     }
 
     static transition() {
-        console.log("----- I = " +Plateau.i+ " -------")
         if (!Jeu.plateau.getClickIsOn()) {
+            Plateau.i<1 ? Plateau.i++ : Plateau.i--;
             document.getElementById("partie").style.display = "none";
             document.getElementById("transition").style.display = "block";
             document.getElementById("transition-prochain").innerHTML = Jeu.joueurs[Plateau.i].getNom();
             Jeu.plateau.setClickIsOn(true);
+            if (Jeu.numTour) {
+                document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
+            } else
+                Jeu.numTour = 1;
         } else {
-
+            document.getElementById("transition").style.display = "none";
+            document.getElementById("partie").style.display = "block";
+            Jeu.plateau.afficherPlateau();
+            Jeu.joueurs[Plateau.i].affichageJoueur();
         }
     }
+    
 
     static regleDuJeu(){
 

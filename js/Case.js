@@ -4,6 +4,7 @@ class Case {
         this.proche = [false, false];
         this.tire = [false, false];
         this.bateau = [false, false];
+        this.coule = [false, false];
     }
 
     getTouche(numJoueur) {
@@ -22,6 +23,10 @@ class Case {
         return this.bateau[numJoueur];
     }
 
+    getCoule(numJoueur) {
+        return this.coule[numJoueur];
+    }
+
     setTouche(numJoueur, newVal) {
         this.touche[numJoueur] = newVal;
     }
@@ -31,9 +36,14 @@ class Case {
     }
 
     setTire(numJoueur, newVal) {
-        this.tire[numJoueur] = newVal    }
+        this.tire[numJoueur] = newVal    
+    }
 
     setBateau(numJoueur, newVal) {
         this.bateau[numJoueur] = newVal;
+    }
+
+    setCoule(numJoueur, newVal) {
+        this.coule[numJoueur] = newVal;
     }
 }
