@@ -14,8 +14,7 @@
     <script type="text/javascript" src="js/Plateau.js"></script>
     <script type="text/javascript" src="js/Case.js"></script>
 </head>
-<body>
-    
+<body>    
     <nav>
         <audio controls loop preload="auto">
             <source src="audio/bgMusic.mp3" type="audio/mpeg">
@@ -24,39 +23,41 @@
     </nav>
     <div id="index-box" class="centrerV">
         <h1>Bataille Navale</h1>
-        <button id="bouton" type="button" value="Règle du jeu" onClick="Jeu.regleDuJeu()">Règle du jeu</button>
-        <div id="regleDuJeu">
-            Version multijoueur.</br>
-            Choisissez le nombre de bateau que vous souhaitez, et placer le(s) à votre guise. &#x26F4;</br>
-            Votre but est de faire couler tout les bateaux de votre adversaire. &#x1F571;</br>
-            Si vous touchez la case où se trouve le bateau adverse, vous le faites couler.</br>
-            Si vous touchez une case à moins de 6 cases du bateau adverse,</br>
-            Le chiffre vous indiquant le nombre de cases d'écart s'affiche.</br>
-            Ce sera alors à vous de déduire sa position exacte.</br>
-            Si vous êtes à plus de 6 cases, rien ne s'affiche et votre tour passe.</br>
-            <strong> Facile: </strong> Plateau de 10 cases sur 10.</br>
-            <strong> Intermediaire: </strong> Plateau de 15 cases sur 15.</br>
-            <strong> Difficile: </strong> Plateau de 20 cases sur 20. Lorsque vous êtes à moins de 6 cases du bateau adverse,</br>
-            Celui-ci se positionne à l'opposé de sa position initiale, relativement à vous.</br>
-        </div>
         <div id="modes">
             <div id="facile" class="cursor-click" onclick="Jeu.setMode(1)">Facile</div>
-            <div id="difficile" class="cursor-click" onclick="Jeu.setMode(3)">Normal</div>
-            <div id="intermediaire" class="cursor-click" onclick="Jeu.setMode(2)">Difficile</div>
+            <div id="difficile" class="cursor-click" onclick="Jeu.setMode(3)">Difficile</div>
+            <div id="normal" class="cursor-click" onclick="Jeu.setMode(2)">Normal</div>
         </div>
     </div>
     <div id="initialisation">
         <p>
             <form name='init'>
-                <div class="joueur"><label>Joueur 1: </label><input class="bouton1" type='text' name='nomJoueur1'></div>
-                <div class="joueur"><label>Joueur 2: </label><input class="bouton1" type='text' name='nomJoueur2'></div>
-                <div class="joueur"><label>Nombre de bateaux: </label><input class="bouton1" type="number" name="nbBateaux" step="1" value="1" min="1" max="3"></div>
+                <div class="joueur"><label>Joueur 1: </label><input type='text' name='nomJoueur1'></div>
+                <div class="joueur"><label>Joueur 2: </label><input type='text' name='nomJoueur2'></div>
+                <div class="joueur"><label>Nombre de bateaux: </label><input type="number" name="nbBateaux" step="1" value="1" min="1" max="3"></div>
             </form>
-            <input class="bouton2" type="button" value="Commencer la partie !" onclick="Jeu.lancerPartie()">
+            <input type="button" value="Commencer la partie !" onclick="Jeu.lancerPartie()">
         </p>
     </div>
     <div id="partie">    
         <div id="infos"><div id="tours"></div><div id="nomJoueur"></div></div>
+        <div id="regles">
+            <div id="regles-bouton" class="cursor-click" onclick="Jeu.regleDuJeu()">Règles du jeu</div>
+            <div id="regles-texte">
+                Version multijoueur.</br>
+                Choisissez le nombre de bateau que vous souhaitez, et placer le(s) à votre guise. &#x26F4;</br>
+                Votre but est de faire couler tout les bateaux de votre adversaire. &#x1F571;</br>
+                Si vous touchez la case où se trouve le bateau adverse, vous le faites couler.</br>
+                Si vous touchez une case à moins de 6 cases du bateau adverse,</br>
+                Le chiffre vous indiquant le nombre de cases d'écart s'affiche.</br>
+                Ce sera alors à vous de déduire sa position exacte.</br>
+                Si vous êtes à plus de 6 cases, rien ne s'affiche et votre tour passe.</br>
+                <strong> Facile: </strong> Plateau de 10 cases sur 10.</br>
+                <strong> normal: </strong> Plateau de 15 cases sur 15.</br>
+                <strong> Difficile: </strong> Plateau de 20 cases sur 20. Lorsque vous êtes à moins de 6 cases du bateau adverse,</br>
+                Celui-ci se positionne à l'opposé de sa position initiale, relativement à vous.</br>
+            </div>
+        </div>
         <div id="plateau"></div>
     </div>
     <div id="transition" class="centrerV">

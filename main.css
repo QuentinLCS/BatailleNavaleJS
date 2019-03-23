@@ -1,11 +1,21 @@
+
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto.ttf") format("truetype");
+} 
+
+@font-face {
+    font-family: "Opensans";
+    src: url("fonts/Opensans.ttf") format("truetype");
+}
+
 body
 {
     background-image: url(images/fond_accueil.png);
     background-repeat: repeat;
     background-size: 2000px;
-    height: auto;
     font-family: "Roboto";
-    color: rgb(102, 39, 3);
+    color: rgb(0, 0, 0);
     margin: 0px;
     padding: 0px;
 }
@@ -128,26 +138,16 @@ nav h1 {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    height: 250px;;
+    height: 250px;
 }
 
-#facile, #facile:hover ~ #intermediaire, #difficile:hover ~ #intermediaire, #difficile {
-    width: 100%;
-    width: 200px;
-    height: 150px;  
-    box-shadow: none;
-    border-radius: 0px;
+#facile, #facile:hover ~ #normal, #difficile:hover ~ #normal, #difficile {
     animation-name: modes-hover-petit;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
 }
 
-#facile:hover, #intermediaire, #difficile:hover {
-    z-index: 99;
-    width: 300px;
-    height: 200px;
-    box-shadow: 0px 0px 50px rgb(255, 255, 255);
-    border-radius: 10px;
+#facile:hover, #normal, #difficile:hover {
     animation-name: modes-hover-grand;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
@@ -156,18 +156,22 @@ nav h1 {
 @keyframes modes-hover-grand
 {
     from {
-        width: 100%;
         width: 200px;
         height: 150px;  
         box-shadow: none;
         border-radius: 0px;
+        line-height: 150px;
+        font-size: 1.2em;
+        color: rgba(255, 255, 255, 0);
     }
     to {    
         z-index: 99;
-        width: 300px;
+        width: 280px;
         height: 200px;
         box-shadow: 0px 0px 50px rgb(255, 255, 255);
         border-radius: 10px;
+        line-height: 200px;
+        font-size: 1.8em;
     }
 }
 
@@ -175,31 +179,47 @@ nav h1 {
 {
     from {
         z-index: 99;
-        width: 300px;
+        width: 280px;
         height: 200px;
         box-shadow: 0px 0px 50px rgb(255, 255, 255);
         border-radius: 10px;
+        line-height: 200px;
+        font-size: 1.8em;
     }
     to {   
-        width: 100%;
         width: 200px;
         height: 150px;  
         box-shadow: none;
         border-radius: 0px;
+        line-height: 150px;
+        font-size: 1.2em;
+        color: rgba(255, 255, 255, 0);
     }
 }
 
+#facile, #normal, #difficile {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 #facile {
-    background-color: rgba(13, 253, 25, 0.301);
+    background-image: url(images/mode_facile.jpg);
+    background-size: 200%;
+    background-position: 50% 0;
     order:1;
 }
 
-#intermediaire {
-    background-color: rgb(253, 177, 13, 0.301); 
+#normal {
+    background-image: url(images/mode_normal.jpg);
+    background-size: 120%;
     order:2;
 }
+
 #difficile {
-    background-color: rgb(253, 13, 13, 0.301);
+    background-image: url(images/mode_difficile.jpg);
+    background-size: 140%;
     order:3;
 }
 
@@ -220,21 +240,14 @@ nav h1 {
 
 }
 
-#bouton
-{
-    display: block;
-    margin: auto;
-    color: rgb(102, 39, 3);
-    background-color: rgb(1, 158, 231);
+#regles-texte {
+    display: none;
 }
 
-#regleDuJeu
-{
-    display: none;
-    text-align: center;
-    font-family: "Roboto";
-    color: rgb(102, 39, 3);
-
+#regles-bouton {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(203, 31, 255);
 }
 
 .joueur
@@ -247,20 +260,8 @@ nav h1 {
     font-size: 14pt;
 }
 
-.bouton1
-{
-    font-family: "Roboto";
-    color:  rgb(102, 39, 3);
-}
-
-.bouton2
-{
-    margin-top: 10%;
-    padding: 4%;
-    font-family: "Roboto";
-    font-size: 12pt;
-    color:  rgb(102, 39, 3);
-    background-color: rgb(1, 158, 231);
+#partie {
+    display: none;
 }
 
 #tours
@@ -311,8 +312,6 @@ nav h1 {
 }
 
 #bouton-pret {
-    position: relative;
-    bottom: 0px;
     height: 50px;
     width: 100%;
     line-height: 50px;
@@ -321,6 +320,7 @@ nav h1 {
     background-color: rgb(1, 139, 231);
     border-radius: 0 0 20px 20px;
     border-bottom: 8px solid rgb(13, 18, 22);
+    margin-top: -6px;
 }
 
 .bouton:hover {
@@ -331,14 +331,23 @@ nav h1 {
 
 @keyframes bouton-hover
 {
-    from {border-bottom: 8px solid rgb(13, 18, 22);}
-    to {border-bottom: 2px solid rgb(13, 18, 22);}
+    from {
+        border-bottom: 8px solid rgb(13, 18, 22);
+    }
+    to {
+        margin-top: 0px;
+        border-bottom: 2px solid rgb(13, 18, 22);
+    }
 }
 
 @keyframes bouton-hover-retour
 {
-    from {border-bottom: 8px solid rgb(13, 18, 22);}
-    to {border-bottom: 2px solid rgb(13, 18, 22);}
+    from {
+        border-bottom: 8px solid rgb(13, 18, 22);
+    }
+    to {
+        border-bottom: 2px solid rgb(13, 18, 22);
+    }
 }
 
 .tips {

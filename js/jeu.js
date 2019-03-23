@@ -105,13 +105,10 @@ class Jeu {
     
 
     static regleDuJeu(){
-
-        if (document.getElementById('bouton').innerHTML == 'Règle du jeu') {
-            document.getElementById('bouton').innerHTML = 'Règle du jeu';
-            document.getElementById('regleDuJeu').style.display = 'block';
+        if (document.getElementById("regles-texte").style.display == "none") {
+            document.getElementById("regles-texte").style.display = 'block';
         } else {
-            document.getElementById('bouton').innerhtml = 'Règle du jeu';
-            document.getElementById('regleDuJeu').style.display='none';
+            document.getElementById("regles-texte").style.display='none';
         }
     }
 
