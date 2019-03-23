@@ -356,21 +356,20 @@ td img {
 
 #options-flex {height: 210px;}
 
-#menu-boutons {height: 136px;}
+#menu-boutons {height: 136px; flex-direction: column-reverse;}
 
 #music-bouton {
     background-image: url(images/bouton_volume_on.svg);
-    order: 2;
 }
 
 #regles-bouton {
     background-image: url(images/bouton_rules.svg);
-    order: 3;
+    order: 1;
 }
 
 #home-bouton {
     background-image: url(images/bouton_home.svg);
-    order: 1;
+    order: 2;
 }
 
 .bouton-menu {

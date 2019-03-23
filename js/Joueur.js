@@ -38,10 +38,5 @@ class Joueur {
     setNbBateauxVivants(nbBateauxVivants) {
         this.nbBateauxVivants = nbBateauxVivants;
     }
-
-    affichageJoueur() {
-        document.getElementById("tours").innerHTML = "<p><h2>Tour n°" +Jeu.numTour+ "</h2></p>";
-        document.getElementById("nomJoueur").innerHTML = "<p><h2>" +Jeu.joueurs[Plateau.i].getNom()+ "</h2></p>"
-    }
     
 }

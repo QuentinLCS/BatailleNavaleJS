@@ -30,7 +30,6 @@ class Jeu {
 
         document.getElementById("initialisation").style.display = "none";
         document.getElementById("partie").style.display = "block";
-        document.getElementById("tours").innerHTML = "<p><h2>Veuillez choisir vos bateaux</h2></p>";
         Affichage.boutonsOptions(2);
         Joueur.nbBateaux = document.init.nbBateaux.value;
         Jeu.joueurs = [new Joueur(0), new Joueur(1)];
@@ -94,13 +93,14 @@ class Jeu {
         } else {
             document.getElementById("transition").style.display = "none";
             if (Jeu.numTour == -1 || forceHome) {
+                Affichage.boutonsOptions();
                 document.getElementById("partie").style.display = "none";
                 document.getElementById("index-box").style.display = "block";
                 document.body.style.backgroundImage = "url(images/fond_accueil.png)";
             } else {
                 document.getElementById("partie").style.display = "block";
                 Jeu.plateau.afficherPlateau();
-                Jeu.joueurs[Plateau.i].affichageJoueur();
+                Affichage.infosTour();
             }
         }
     }
