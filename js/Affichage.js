@@ -29,20 +29,20 @@ class Affichage {
         }
     }
 
-    static curseursTransition() {
+    static changerCurseurs(newCursor) {
         let CursorTargetBList = document.getElementsByClassName("cursor-targetB");
         let CursorImpossible = document.getElementsByClassName("cursor-impossible");
 
         
         for(let i = 0; i < (CursorImpossible.length >= CursorTargetBList.length ? CursorTargetImpossible.length : CursorTargetBList.length); i++)
         {           
-            
+
             if (i < CursorImpossible.length) {
-                CursorImpossible[i].classList.add("cursor-wait");
+                CursorImpossible[i].classList.add(newCursor);
             }
         
             if (i < CursorTargetBList.length) {
-                CursorTargetBList[i].classList.add("cursor-wait");
+                CursorTargetBList[i].classList.add(newCursor);
             }
         }
     }

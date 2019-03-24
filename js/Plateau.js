@@ -41,20 +41,20 @@ class Plateau {
                     texte += 'class="cursor-impossible"> <img src="images/jeu_coule.svg" alt="mort">';
                 else if (this.tableau[ligne][colonne].getCoule(Plateau.i)) 
                     texte += 'class="cursor-impossible"> <img src="images/jeu_checked.svg" alt="tué">';  
-                else if (this.tableau[ligne][colonne].getTire(Plateau.i)) 
+                else if (this.tableau[ligne][colonne].getTire(Plateau.i) || this.tableau[ligne][colonne].getProche(Plateau.i) && this.getTaille() == 15) 
                     if (this.tableau[ligne][colonne].getBateau(Plateau.i))
-                        texte += 'class="case-tire cursor-impossible" > ⚓ ';
+                        texte += 'class="case-tire cursor-impossible" ><img src="images/jeu_bateau.svg" alt="bateau">';
                     else
                         texte += 'class="case-tire cursor-impossible" > ';
-                else if (this.tableau[ligne][colonne].getProche(Plateau.i) && this.getTaille() == 10) 
+                else if (this.tableau[ligne][colonne].getProche(Plateau.i)) 
                     if (this.tableau[ligne][colonne].getBateau(Plateau.i))
-                        texte += 'class="case-proche cursor-impossible"> ⚓ ';
+                        texte += 'class="case-proche cursor-impossible"><img src="images/jeu_bateau.svg" alt="bateau">';
                     else
                         texte += 'class="case-proche cursor-impossible"> ';
                 else if (this.tableau[ligne][colonne].getBateau(Plateau.i)) 
-                    texte += 'class="cursor-targetB" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ⚓ ';
+                    texte += 'class="cursor-targetB" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"><img src="images/jeu_bateau.svg" alt="bateau">';
                 else if (this.tableau[ligne][colonne].getTouche(Plateau.i) ) 
-                    texte += 'class="cursor-impossible"> <img src="images/jeu_touche.svg" alt="touché"> ';
+                    texte += 'class="cursor-impossible"><img src="images/jeu_touche.svg" alt="touché">';
                 else 
                     texte += 'class="cursor-targetB" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"> ';
                 texte += '</td>';
@@ -84,7 +84,7 @@ class Plateau {
             else
                 Jeu.jeu(coordonnees);
         }
-        Affichage.curseursTransition();
+        Affichage.changerCurseurs("cursor-wait");
 
     }    
 }

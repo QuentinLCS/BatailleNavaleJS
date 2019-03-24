@@ -59,15 +59,17 @@ class Jeu {
                 }
             } 
             
-            else if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1) {
+            else if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1) 
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTire(Plateau.i, true);
-            }
-            
-            else 
+    
+            else {
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
+                if (Jeu.plateau.getTaille() == 20) {
+                    Jeu.plateau.tableau[Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].getX()][Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].getY()].setBateau(adversaire, false);
+                    Jeu.joueurs[adversaire].setEstInit(false);
+                }
+            }
         }
-
-        Jeu.numTour += Plateau.i;
 
         Jeu.plateau.afficherPlateau();
 
@@ -110,6 +112,7 @@ class Jeu {
                 document.getElementById("partie").style.display = "flex";
                 Jeu.plateau.afficherPlateau();
                 Affichage.infosTour();
+                Jeu.numTour += Plateau.i;
             }
         }
     }

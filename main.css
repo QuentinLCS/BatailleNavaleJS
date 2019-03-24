@@ -33,6 +33,7 @@ body
 .cursor-click {cursor: pointer;}
 .cursor-impossible {cursor: not-allowed;}
 .cursor-wait {cursor: progress;}
+.cursor-addBoat {cursor: url(images/jeu_bateau.svg)8 6, default;}
 
 
 a
