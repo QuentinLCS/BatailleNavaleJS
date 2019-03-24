@@ -26,6 +26,7 @@ class Bateau {
         Jeu.joueurs[Plateau.i].bateaux[Plateau.j] = new Bateau(coordonnees);
         Plateau.j++; 
         
+        Affichage.playSound(0);
         Jeu.plateau.afficherPlateau();
 
         if (Plateau.j == Joueur.nbBateaux) { 

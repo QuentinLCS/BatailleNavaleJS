@@ -25,6 +25,8 @@ class Jeu {
         document.getElementById("index-box").style.display = "none";
         document.getElementById("initialisation").style.display = "block";
         Affichage.boutonsOptions(1);
+
+        document.forms["init"].elements["nomJoueur1"].focus();
     }
 
     static lancerPartie() {
@@ -46,7 +48,7 @@ class Jeu {
 
         for (let i = 0; i < Joueur.nbBateaux; i++) {
             if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == 0) {
-
+                Affichage.playSound(1);
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTouche(Plateau.i, true);
                 Jeu.joueurs[adversaire].bateaux[i].points[0].setTouche(true, adversaire);
 
@@ -81,6 +83,7 @@ class Jeu {
         Affichage.regles(true);
         if (!Jeu.plateau.getClickIsOn() && !forceHome) {
             if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
+                Affichage.playSound(2);
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
                 document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
@@ -119,15 +122,4 @@ class Jeu {
             }
         }
     }
-
-    static music() {
-        if (document.getElementById("music").paused) {
-            document.getElementById("music").play();
-            document.getElementById("music-bouton").style.backgroundImage = "url(images/bouton_volume_on.svg)";
-        } else {
-            document.getElementById("music").pause();
-            document.getElementById("music-bouton").style.backgroundImage = "url(images/bouton_volume_off.svg)";
-        }
-    }
 }
-// document.forms["general"].elements["champ1"].focus(); pour donner le focus sur une case

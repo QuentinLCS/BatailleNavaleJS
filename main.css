@@ -35,11 +35,16 @@ body
 .cursor-wait {cursor: progress;}
 .cursor-addBoat {cursor: url(images/cursorBoat.png)8 6, default;}
 
+input:focus
+{
+    outline: none;
+}
 
 a
 {
     color: rgb(var(--main-color));
     text-decoration: none;
+
 }
 
 a:visited
@@ -279,6 +284,9 @@ input
     border-bottom: 8px solid rgb(13, 18, 22);
     margin-top: -6px;
     text-transform: uppercase;
+    animation-name: bouton-retour;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
 }
 
 .bouton:hover 
@@ -299,13 +307,15 @@ input
     }
 }
 
-@keyframes bouton-hover-retour
+@keyframes bouton-retour
 {
     from {
-        border-bottom: 8px solid rgb(13, 18, 22);
+        border-bottom: 2px solid rgb(13, 18, 22);
+        margin-top: 0px;
     }
     to {
-        border-bottom: 2px solid rgb(13, 18, 22);
+        border-bottom: 8px solid rgb(13, 18, 22);
+        margin-top: -6px;
     }
 }
 

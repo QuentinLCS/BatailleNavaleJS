@@ -57,4 +57,22 @@ class Affichage {
             }
         }
     }
+
+    static playSound(numSound) {
+        if (!document.getElementById("music").paused) {
+            let soundList = ["jeu_rate.mp3","jeu_touche.mp3","jeu_victoire.mp3"];
+            let sound = new Audio("audio/"+soundList[numSound]);
+            sound.play();
+        }
+    }
+
+    static music() {
+        if (document.getElementById("music").paused) {
+            document.getElementById("music").play();
+            document.getElementById("music-bouton").style.backgroundImage = "url(images/bouton_volume_on.svg)";
+        } else {
+            document.getElementById("music").pause();
+            document.getElementById("music-bouton").style.backgroundImage = "url(images/bouton_volume_off.svg)";
+        }
+    }
 }
