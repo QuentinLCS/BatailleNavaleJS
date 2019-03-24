@@ -23,21 +23,28 @@ class Affichage {
 
     // TODO : Afficher les règles en fonction du mode de jeu.
     static regles(forceDesactiver) {
-        let texte;
+        let texte = '<div id="regles-texte" class="centrerV"><h2>REGLES DU JEU</h2><label>Difficulté : ';
         switch (Jeu.plateau.getTaille()) {
             case 10:
+                texte += '<em>Facile</em></label><p>Ahoy ! Votre quête si vous l\'acceptez marin d\'eau douce, est de faire <em>couler tous les bateaux de votre adversaire</em> avant qu\'il ne vous coule.</p><table><tr><td><img src="images/jeu_bateau.svg" alt="bateau"></td><td>Placez vos bateaux à l\'emplacement de votre choix.</td></tr><tr><td><img src="images/jeu_touche.svg" alt="bateau"></td><td>Touchez un bateau adverse en tirant sur la carte.</td></tr><tr><td><img src="images/jeu_coule.svg" alt="bateau"></td><td>Si toutes les cases de votre bateau sont touchées, il coule.</td></tr><tr><td><img src="images/jeu_checked.svg" alt="bateau"></td><td>Vous êtes informé si le bateau adverse a coulé.</td></tr><tr><td class="case-proche"></td><td>Si vous avez tiré à moins de 8 cases d\'un adversaire.</td></tr><tr><td class="case-tire"></td><td>Si vous avez raté votre cible.</td></tr></table><p>Que la mer guide votre âme jeune timonier ! Ne vous fiez à personne, sur l\'eau vous êtes votre seul allié face à ces gredins. Pas de quartier !</p>';
                 break;
             case 15:
+                texte += '<em>Normale</em></label><p>Ahoy ! Votre quête si vous l\'acceptez camarade, est de faire <em>couler tous les bateaux de votre adversaire</em> avant qu\'il ne vous coule.</p><table><tr><td><img src="images/jeu_bateau.svg" alt="bateau"></td><td>Placez vos bateaux à l\'emplacement de votre choix.</td></tr><tr><td><img src="images/jeu_touche.svg" alt="bateau"></td><td>Touchez un bateau adverse en tirant sur la carte.</td></tr><tr><td><img src="images/jeu_coule.svg" alt="bateau"></td><td>Si toutes les cases de votre bateau sont touchées, il coule.</td></tr><tr><td><img src="images/jeu_checked.svg" alt="bateau"></td><td>Vous êtes informé si le bateau adverse a coulé.</td></tr><tr><td class="case-tire"></td><td>Si vous avez raté votre cible.</td></tr></table><p>Que la mer guide votre âme capitaine ! Ne vous fiez à personne, sur l\'eau vous êtes votre seul allié face à ces gredins. Pas de quartier !</p>';
                 break;
             case 20:
+                texte += '<em>Difficile</em></label><p>Ahoy ! Votre quête si vous l\'acceptez mon capitaine, est de faire <em>couler tous les bateaux de votre adversaire</em> avant qu\'il ne vous coule.</p><table><tr><td><img src="images/jeu_bateau.svg" alt="bateau"></td><td>Placez vos bateaux à l\'emplacement de votre choix.</td></tr><tr><td><img src="images/jeu_touche.svg" alt="bateau"></td><td>Touchez un bateau adverse en tirant sur la carte.</td></tr><tr><td><img src="images/jeu_coule.svg" alt="bateau"></td><td>Si toutes les cases de votre bateau sont touchées, il coule.</td></tr><tr><td><img src="images/jeu_checked.svg" alt="bateau"></td><td>Vous êtes informé si le bateau adverse a coulé.</td></tr><tr><td class="case-proche"></td><td>Si vous avez tiré à moins de 8 cases d\'un adversaire.</td></tr><tr><td class="case-tire"></td><td>Si vous avez raté votre cible.</td></tr></table><p><em>Si l\'ennemi tire proche d\'un de vos bateaux, vous pouvez le déplacer.</em> Que la mer guide votre âme Vieux loup de mer ! Pas de quartier !</p>';
                 break;
-        
         }
+        texte += '<div class="bouton cursor-click" onclick="Affichage.regles(false)">Revenir au jeu</div></div></div>';
+
         if (document.getElementById("regles").style.display == "none" && !forceDesactiver) {
             document.getElementById("regles").style.display = 'block';
+            document.getElementById("regles").innerHTML = texte;
         } else {
             document.getElementById("regles").style.display="none";
+            document.getElementById("regles").innerHTML = "";
         }
+        
     }
 
     static changerCurseurs(newCursor) {
@@ -50,6 +57,7 @@ class Affichage {
 
             if (i < CursorImpossible.length) {
                 CursorImpossible[i].classList.add(newCursor);
+                CursorImpossible[i].createAttribute("onclick").value = "https://www.w3schools.com"
             }
         
             if (i < CursorTargetBList.length) {

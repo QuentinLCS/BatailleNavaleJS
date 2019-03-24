@@ -51,12 +51,12 @@ class Plateau {
                     texte += 'class="cursor-impossible"> <img src="images/jeu_coule.svg" alt="mort">';
                 else if (this.tableau[ligne][colonne].getCoule(Plateau.i)) 
                     texte += 'class="cursor-impossible"> <img src="images/jeu_checked.svg" alt="tué">';  
-                else if (this.tableau[ligne][colonne].getTire(Plateau.i) || this.tableau[ligne][colonne].getProche(Plateau.i) && this.getTaille() == 15) 
+                else if (this.tableau[ligne][colonne].getTire(Plateau.i) || this.tableau[ligne][colonne].getProche(Plateau.i) && this.getTaille() == 15) {
                     if (this.tableau[ligne][colonne].getBateau(Plateau.i))
                         texte += 'class="case-tire cursor-impossible" ><img src="images/jeu_bateau.svg" alt="bateau">';
                     else
                         texte += 'class="case-tire cursor-impossible" > ';
-                else if (this.tableau[ligne][colonne].getProche(Plateau.i)) 
+                }else if (this.tableau[ligne][colonne].getProche(Plateau.i)) 
                     if (this.tableau[ligne][colonne].getBateau(Plateau.i))
                         texte += 'class="case-proche cursor-impossible"><img src="images/jeu_bateau.svg" alt="bateau">';
                     else

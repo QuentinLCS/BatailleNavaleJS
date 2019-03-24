@@ -243,12 +243,12 @@ input
     margin: 30px 0 10px 0;
 }
 
-.case-proche 
+#partie .case-proche,  .case-proche
 {
     background-color: rgb(var(--main-color));
 }
 
-.case-tire
+#partie .case-tire, .case-tire
 {
     background-color: rgb(190, 190, 190);
 }
@@ -410,14 +410,14 @@ input
     background-color: rgb(var(--main-color));
 }
 
-td 
+#partie td 
 {
     width: 30px;
     height: 30px;
     background-color: rgb(255, 255, 255);
 }
 
-td:hover 
+#partie-plateau td:hover 
 {
     position: relative;
     z-index: 50;
@@ -428,7 +428,7 @@ td img
 {
     width: 20px;
     height: 20px;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
 :root 
@@ -454,19 +454,31 @@ td img
     height: 420px;
     margin-right: auto;
     margin-left: auto;
-    padding-top: 30px;
+    padding-top: 30px ;
     text-align: center;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     list-style: none;
 }
 
-#regles-texte p, #regles-texte ul
+#regles table
 {
-    padding: 30px 50px 15px 50px;
+    margin: 10px 50px 10px 55px;
+    text-align: justify;
+}
+
+#regles td + td
+{
+    text-indent: 15px;
+    line-height: 30px;
 }
 
 
+
+#regles p 
+{
+    margin: 20px 50px 20px 50px;
+}
 
 @keyframes popup-apparition
 {
@@ -478,7 +490,8 @@ td img
     }
 }
 
-footer {
+footer 
+{
     display: block;
     width: 100%;
     position: absolute;
@@ -487,3 +500,4 @@ footer {
     color: white;
     text-align: center;
 }
+
