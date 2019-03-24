@@ -121,11 +121,11 @@ class Jeu {
     }
 
     static music() {
-        if (document.getElementById("music").muted) {
-            document.getElementById("music").muted = false;
+        if (document.getElementById("music").paused) {
+            document.getElementById("music").play();
             document.getElementById("music-bouton").style.backgroundImage = "url(images/bouton_volume_on.svg)";
         } else {
-            document.getElementById("music").muted = true;
+            document.getElementById("music").pause();
             document.getElementById("music-bouton").style.backgroundImage = "url(images/bouton_volume_off.svg)";
         }
     }
