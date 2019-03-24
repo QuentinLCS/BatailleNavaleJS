@@ -58,31 +58,25 @@ class Jeu {
                     Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setCoule(Plateau.i, true);
                 
                 }
-                console.log("1");
             } 
             
             else if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == -1) {
-                console.log("2");
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTire(Plateau.i, true);
                 Affichage.playSound(0);
             }
             else {
-                console.log("3");
                 Affichage.playSound(0);
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setProche(Plateau.i, true);
                 if (Jeu.plateau.getTaille() == 20) {
                     Jeu.plateau.tableau[Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].getX()][Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].getY()].setBateau(adversaire, false);
-                    Jeu.joueurs[adversaire].setEstInit(false);
                     setTimeout(function() {
+                        Jeu.joueurs[adversaire].setEstInit(false);
                         Jeu.plateau.clearInts(Plateau.i == 1 ? 0 : 1);
                     }, 2000);
                 }
             }
         }
-        console.log("Avant");
         Jeu.plateau.afficherPlateau();
-        console.log("Après");
-
     }
 
     static transition(forceHome) {

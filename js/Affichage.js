@@ -55,14 +55,11 @@ class Affichage {
         for(let i = 0; i < (CursorImpossible.length >= CursorTargetBList.length ? CursorTargetImpossible.length : CursorTargetBList.length); i++)
         {           
 
-            if (i < CursorImpossible.length) {
+            if (i < CursorImpossible.length)
                 CursorImpossible[i].classList.add(newCursor);
-                CursorImpossible[i].createAttribute("onclick").value = "https://www.w3schools.com"
-            }
         
-            if (i < CursorTargetBList.length) {
+            if (i < CursorTargetBList.length)
                 CursorTargetBList[i].classList.add(newCursor);
-            }
         }
     }
 
