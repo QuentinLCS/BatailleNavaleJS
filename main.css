@@ -39,15 +39,7 @@ body
 a
 {
     color: rgb(var(--main-color));
-    font-weight: bold;
     text-decoration: none;
-    transition-property: color;
-    transition-duration: 1s;
-}
-
-a:hover
-{
-	color: rgb(255, 86, 86);
 }
 
 a:visited
@@ -132,14 +124,14 @@ input
 #facile, #facile:hover ~ #normal, #difficile:hover ~ #normal, #difficile 
 {
     animation-name: modes-hover-petit;
-    animation-duration: 0.2s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
 #facile:hover, #normal, #difficile:hover 
 {
     animation-name: modes-hover-grand;
-    animation-duration: 0.2s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
@@ -474,4 +466,14 @@ td img
     to {
         background-color: rgba(0, 0, 0, 0.747);
     }
+}
+
+footer {
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
 }

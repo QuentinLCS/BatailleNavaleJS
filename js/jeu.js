@@ -68,7 +68,7 @@ class Jeu {
                     Jeu.joueurs[adversaire].setEstInit(false);
                     setTimeout(function() {
                         Jeu.plateau.clearInts(Plateau.i == 1 ? 0 : 1);
-                    }, 3000);
+                    }, 2000);
                 }
             }
         }

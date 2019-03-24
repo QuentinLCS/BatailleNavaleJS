@@ -24,7 +24,7 @@ class Affichage {
     // TODO : Afficher les règles en fonction du mode de jeu.
     static regles(forceDesactiver) {
         let texte;
-        switch (Jeu.Plateau.getTaille()) {
+        switch (Jeu.plateau.getTaille()) {
             case 10:
                 break;
             case 15:
