@@ -9,7 +9,7 @@ class Jeu {
         if (mode < 4) {
             Jeu.plateau = new Plateau();
             document.getElementById("modes").style.display = "none";
-            document.getElementById("nbJoueurs").style.display = "block";
+            document.getElementById("nbJoueurs").style.display = "flex";
         } else {
             document.getElementById("nbJoueurs").style.display = "none";
             document.getElementById("index-box").style.display = "none";
@@ -30,10 +30,11 @@ class Jeu {
                 document.documentElement.style.setProperty('--main-color', '103, 34, 194'); 
                 break;
             case 4:
-
+                Jeu.transition(true);
+                alert("ERREUR : Ce mode n'est pas encore disponible. \n\nSolution : Envisagez de trouver des amis.")
                 break;
             case 5:
-                
+            console.log("MODE MULTI. (distinguer les deux modes)");
                 break;
         }
             

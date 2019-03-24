@@ -116,7 +116,7 @@ input
     transform: translateY(-50%); 
 }
 
-#modes 
+#modes, #nbJoueurs
 {
     z-index: 50;
     display: flex;
@@ -126,14 +126,14 @@ input
     height: 250px;
 }
 
-#facile, #facile:hover ~ #normal, #difficile:hover ~ #normal, #difficile 
+#facile, #facile:hover ~ #normal, #difficile:hover ~ #normal, #difficile, #solo, #multijoueur
 {
     animation-name: modes-hover-petit;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
-#facile:hover, #normal, #difficile:hover 
+#facile:hover, #normal, #difficile:hover, #solo:hover, #multijoueur:hover
 {
     animation-name: modes-hover-grand;
     animation-duration: 0.5s;
@@ -184,7 +184,7 @@ input
     }
 }
 
-#facile, #normal, #difficile 
+#facile, #normal, #difficile, #solo, #multijoueur
 {
     color: white;
     font-weight: bold;
@@ -211,6 +211,22 @@ input
 {
     background-image: url(images/mode_difficile.jpg);
     background-size: 140%;
+    order:3;
+}
+
+#solo
+{
+    background-image: url(images/mode_solo.jpg);
+    background-size: 140%;
+    background-position: 50% 0;
+    order:2;
+}
+
+#multijoueur 
+{
+    background-image: url(images/mode_multijoueur.jpg);
+    background-size: 140%;
+    background-position: 50% 0;
     order:3;
 }
 
