@@ -1,4 +1,16 @@
 
+
+/* Variables */
+
+:root 
+{
+    --main-color: 1, 139, 231;
+}
+
+
+
+/* Parametres classiques */
+
 @font-face 
 {
     font-family: "Roboto";
@@ -27,13 +39,6 @@ body
     padding: 0px;
     overflow: hidden;
 }
-
-.cursor-targetW {cursor: url(images/cursorWhite.png)8 6, default;}
-.cursor-targetB {cursor: url(images/cursorBlack.png)8 6, default;}
-.cursor-click {cursor: pointer;}
-.cursor-impossible {cursor: not-allowed;}
-.cursor-wait {cursor: progress;}
-.cursor-addBoat {cursor: url(images/cursorBoat.png)8 6, default;}
 
 input:focus
 {
@@ -98,8 +103,6 @@ p
     padding: 0;
 }
 
-
-
 input 
 {
     border-radius: 10px;
@@ -109,12 +112,30 @@ input
     height: 25px;
 }
 
-/* Modes de Jeu */
 .centrerV 
 {
     margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
     transform: translateY(-50%); 
 }
+
+
+
+
+
+/* Parametrage des curseurs */
+
+.cursor-targetW {cursor: url(images/cursorWhite.png)8 6, default;}
+.cursor-targetB {cursor: url(images/cursorBlack.png)8 6, default;}
+.cursor-click {cursor: pointer;}
+.cursor-impossible {cursor: not-allowed;}
+.cursor-wait {cursor: progress;}
+.cursor-addBoat {cursor: url(images/cursorBoat.png)8 6, default;}
+
+
+
+
+
+/* Choix du mode */
 
 #modes, #nbJoueurs
 {
@@ -124,6 +145,11 @@ input
     justify-content: center;
     flex-wrap: wrap;
     height: 250px;
+}
+
+#nbJoueurs
+{
+    display: none;
 }
 
 #facile, #facile:hover ~ #normal, #difficile:hover ~ #normal, #difficile, #solo, #multijoueur
@@ -138,50 +164,6 @@ input
     animation-name: modes-hover-grand;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
-}
-
-@keyframes modes-hover-grand
-{
-    from {
-        width: 200px;
-        height: 150px;  
-        box-shadow: none;
-        border-radius: 0px;
-        line-height: 150px;
-        font-size: 1.2em;
-        color: rgba(255, 255, 255, 0);
-    }
-    to {    
-        z-index: 99;
-        width: 280px;
-        height: 200px;
-        box-shadow: 0px 0px 50px rgb(255, 255, 255);
-        border-radius: 10px;
-        line-height: 200px;
-        font-size: 1.8em;
-    }
-}
-
-@keyframes modes-hover-petit
-{
-    from {
-        z-index: 99;
-        width: 280px;
-        height: 200px;
-        box-shadow: 0px 0px 50px rgb(255, 255, 255);
-        border-radius: 10px;
-        line-height: 200px;
-        font-size: 1.8em;
-    }
-    to {   
-        width: 200px;
-        height: 150px;  
-        box-shadow: none;
-        border-radius: 0px;
-        line-height: 150px;
-        font-size: 1.2em;
-        color: rgba(255, 255, 255, 0);
-    }
 }
 
 #facile, #normal, #difficile, #solo, #multijoueur
@@ -230,7 +212,60 @@ input
     order:3;
 }
 
-/* Initialisation */
+
+
+
+/* Animations des modes de jeu */
+
+@keyframes modes-hover-grand
+{
+    from {
+        width: 200px;
+        height: 150px;  
+        box-shadow: none;
+        border-radius: 0px;
+        line-height: 150px;
+        font-size: 1.2em;
+        color: rgba(255, 255, 255, 0);
+    }
+    to {    
+        z-index: 99;
+        width: 280px;
+        height: 200px;
+        box-shadow: 0px 0px 50px rgb(255, 255, 255);
+        border-radius: 10px;
+        line-height: 200px;
+        font-size: 1.8em;
+    }
+}
+
+@keyframes modes-hover-petit
+{
+    from {
+        z-index: 99;
+        width: 280px;
+        height: 200px;
+        box-shadow: 0px 0px 50px rgb(255, 255, 255);
+        border-radius: 10px;
+        line-height: 200px;
+        font-size: 1.8em;
+    }
+    to {   
+        width: 200px;
+        height: 150px;  
+        box-shadow: none;
+        border-radius: 0px;
+        line-height: 150px;
+        font-size: 1.2em;
+        color: rgba(255, 255, 255, 0);
+    }
+}
+
+
+
+
+
+/* Initialisation (formulaire) */
 
 #initialisation 
 {
@@ -259,138 +294,11 @@ input
     margin: 30px 0 10px 0;
 }
 
-#partie .case-proche,  .case-proche
-{
-    background-color: rgb(var(--main-color));
-}
 
-#partie .case-tire, .case-tire
-{
-    background-color: rgb(190, 190, 190);
-}
 
-#transition 
-{
-    display: none;
-    width: 400px;
-    height: 200px;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-}
 
-#transition p 
-{
-    display: inline-block;
-    margin: 30px 0 0 0;
-    text-align: center;
-}
 
-.bouton 
-{
-    height: 50px;
-    width: 100%;
-    line-height: 50px;
-    color: white;
-    font-weight: bold;
-    background-color: rgb(var(--main-color));
-    border-radius: 0 0 20px 20px;
-    border-bottom: 8px solid rgb(13, 18, 22);
-    margin-top: -6px;
-    text-transform: uppercase;
-    animation-name: bouton-retour;
-    animation-duration: 0.2s;
-    animation-fill-mode: forwards;
-}
-
-.bouton:hover 
-{
-    animation-name: bouton-hover;
-    animation-duration: 0.2s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes bouton-hover
-{
-    from {
-        border-bottom: 8px solid rgb(13, 18, 22);
-    }
-    to {
-        margin-top: 0px;
-        border-bottom: 2px solid rgb(13, 18, 22);
-    }
-}
-
-@keyframes bouton-retour
-{
-    from {
-        border-bottom: 2px solid rgb(13, 18, 22);
-        margin-top: 0px;
-    }
-    to {
-        border-bottom: 8px solid rgb(13, 18, 22);
-        margin-top: -6px;
-    }
-}
-
-.tips 
-{
-    width: 80%;
-    line-height: 30px;
-    margin: 25px auto;
-    border-radius: 10px;
-    color: rgba(var(--main-color), 0.5);
-    background-color: rgba(var(--main-color), 0.1);
-}
-
-#options 
-{
-    z-index: 99;
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
-}
-
-#options-flex, #menu-boutons
-{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#options-flex {height: 210px;}
-
-#menu-boutons {height: 136px; flex-direction: column-reverse;}
-
-#music-bouton 
-{
-    background-image: url(images/bouton_volume_on.svg);
-}
-
-#regles-bouton 
-{
-    background-image: url(images/bouton_rules.svg);
-    order: 1;
-}
-
-#home-bouton 
-{
-    background-image: url(images/bouton_home.svg);
-    order: 2;
-}
-
-.bouton-menu 
-{
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    background-repeat: no-repeat;
-    background-size: 70%;
-    background-position: center;
-}
+/* Affichage de la partie */
 
 #partie, #partie-infos
 {
@@ -447,10 +355,169 @@ td img
     margin-top: 5px;
 }
 
-:root 
+#partie .case-proche,  .case-proche
 {
-    --main-color: 1, 139, 231;
+    background-color: rgb(var(--main-color));
 }
+
+#partie .case-tire, .case-tire
+{
+    background-color: rgb(190, 190, 190);
+}
+
+
+
+
+
+
+/* Fenetre de transition inter-tours */
+
+#transition 
+{
+    display: none;
+    width: 400px;
+    height: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+
+#transition p 
+{
+    display: inline-block;
+    margin: 30px 0 0 0;
+    text-align: center;
+}
+
+
+.tips 
+{
+    width: 80%;
+    line-height: 30px;
+    margin: 25px auto;
+    border-radius: 10px;
+    color: rgba(var(--main-color), 0.5);
+    background-color: rgba(var(--main-color), 0.1);
+}
+
+
+
+
+
+/* Boutons */
+
+.bouton 
+{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(var(--main-color));
+    border-radius: 0 0 20px 20px;
+    border-bottom: 8px solid rgb(13, 18, 22);
+    margin-top: -6px;
+    text-transform: uppercase;
+    animation-name: bouton-retour;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.bouton:hover 
+{
+    animation-name: bouton-hover;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+/* Animation du bouton */
+
+@keyframes bouton-hover
+{
+    from {
+        border-bottom: 8px solid rgb(13, 18, 22);
+    }
+    to {
+        margin-top: 0px;
+        border-bottom: 2px solid rgb(13, 18, 22);
+    }
+}
+
+@keyframes bouton-retour
+{
+    from {
+        border-bottom: 2px solid rgb(13, 18, 22);
+        margin-top: 0px;
+    }
+    to {
+        border-bottom: 8px solid rgb(13, 18, 22);
+        margin-top: -6px;
+    }
+}
+
+
+
+
+
+/* Boutons d'options en bas à droite de l'écran */
+
+#options 
+{
+    z-index: 99;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+#options-flex, #menu-boutons
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#options-flex {height: 210px;}
+
+#menu-boutons {height: 136px; flex-direction: column-reverse;}
+
+#music-bouton 
+{
+    background-image: url(images/bouton_volume_on.svg);
+}
+
+#regles-bouton 
+{
+    background-image: url(images/bouton_rules.svg);
+    order: 1;
+}
+
+#home-bouton 
+{
+    background-image: url(images/bouton_home.svg);
+    order: 2;
+}
+
+.bouton-menu 
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+
+
+
+
+/* Fenetre des regles */
 
 #regles
 {
@@ -489,12 +556,16 @@ td img
     line-height: 30px;
 }
 
-
-
 #regles p 
 {
     margin: 20px 50px 20px 50px;
 }
+
+
+
+
+
+/* Animation d'apparition d'une popup */
 
 @keyframes popup-apparition
 {
@@ -505,6 +576,12 @@ td img
         background-color: rgba(0, 0, 0, 0.747);
     }
 }
+
+
+
+
+
+/* Footer */
 
 footer 
 {
@@ -517,7 +594,3 @@ footer
     text-align: center;
 }
 
-#nbJoueurs
-{
-    display: none;
-}

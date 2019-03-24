@@ -34,7 +34,7 @@ class Jeu {
                 alert("ERREUR : Ce mode n'est pas encore disponible. \n\nSolution : Envisagez de trouver des amis.")
                 break;
             case 5:
-            console.log("MODE MULTI. (distinguer les deux modes)");
+
                 break;
         }
             
