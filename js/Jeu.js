@@ -30,11 +30,10 @@ class Jeu {
                 document.documentElement.style.setProperty('--main-color', '103, 34, 194'); 
                 break;
             case 4:
-                Jeu.transition(true);
-                alert("ERREUR : Ce mode n'est pas encore disponible. \n\nSolution : Envisagez de trouver des amis.")
+                Jeu.joueurs = [new Joueur(0, false), new Joueur(1, true)];
                 break;
             case 5:
-
+                Jeu.joueurs = [new Joueur(0, false), new Joueur(1, false)];
                 break;
         }
             
@@ -42,13 +41,18 @@ class Jeu {
     }
 
     static lancerPartie() {
-
+        if (Jeu.joueurs[1].getEstUneIa()) {
+            Jeu.joueurs[0].setEstInit(true);
+            Jeu.joueurs[1].setEstInit(true);
+            Bateau.initBateaux(new Point(Jeu.getRandomInt(Jeu.plateau.getTaille()), Jeu.getRandomInt(Jeu.plateau.getTaille())));
+        }
+        Joueur.nbBateaux = document.init.nbBateaux.value;
+        for (let i = 0; i < 2; i++)
+            Jeu.joueurs[i].setNbBateauxVivants(Joueur.nbBateaux);
         document.getElementById("initialisation").style.display = "none";
         document.getElementById("partie").style.display = "flex";
         Affichage.boutonsOptions(2);
-        Joueur.nbBateaux = document.init.nbBateaux.value;
-        Jeu.joueurs = [new Joueur(0), new Joueur(1)];
-        Jeu.numTour = 0;
+        !Jeu.joueurs[1].getEstUneIa() ? Jeu.numTour = 0 : Jeu.numTour = 1;
         Jeu.transition(false);
     }
     
@@ -56,17 +60,15 @@ class Jeu {
 
         let adversaire = Plateau.i == 1 ? 0 : 1;
 
-        
-
         for (let i = 0; i < Joueur.nbBateaux; i++) {
             if (Jeu.joueurs[adversaire].bateaux[i].getPoints()[0].estTouche(coordonnees) == 0) {
                 Affichage.playSound(1);
                 Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setTouche(Plateau.i, true);
                 Jeu.joueurs[adversaire].bateaux[i].points[0].setTouche(true, adversaire);
 
-                if (Jeu.joueurs[Plateau.i].bateaux[i].getCoule()) {
+                if (Jeu.joueurs[Jeu.joueurs[1].getEstUneIa() ? adversaire : Plateau.i].bateaux[i].getCoule()) {
 
-                    Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setBateau(false);
+                    Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setBateau(Plateau.i, false);
                     Jeu.plateau.tableau[coordonnees.getX()][coordonnees.getY()].setCoule(Plateau.i, true);
                 
                 }
@@ -82,9 +84,13 @@ class Jeu {
                 if (Jeu.plateau.getTaille() == 20) {
                     Jeu.plateau.tableau[Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].getX()][Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].getY()].setBateau(adversaire, false);
                     setTimeout(function() {
-                        Jeu.joueurs[adversaire].setEstInit(false);
-                        Jeu.plateau.clearInts(Plateau.i == 1 ? 0 : 1);
-                    }, 2000);
+                        if (Jeu.joueurs[1].getEstUneIa()) {
+                            Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].setX(Jeu.getRandomInt(Jeu.plateau.getTaille()));
+                            Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].setY(Jeu.getRandomInt(Jeu.plateau.getTaille()));
+                        } else
+                            Jeu.joueurs[adversaire].setEstInit(false);
+                        Jeu.plateau.clearInts((!Jeu.joueurs[1].getEstUneIa() ? Plateau.i : adversaire) == 1 ? 0 : 1);
+                    }, Jeu.joueurs[1].getEstUneIa() ? 1000 : 2000);
                 }
             }
         }
@@ -102,20 +108,27 @@ class Jeu {
                 document.body.style.backgroundImage = "url(images/fond_victoire.jpg)";
                 Jeu.numTour = -1;
             } else {
-                Plateau.i<1 ? Plateau.i++ : Plateau.i--;
+                if (Plateau.i == 1 || !Jeu.joueurs[1].getEstUneIa()) 
+                    Plateau.i<1 ? Plateau.i++ : Plateau.i--;
                 document.getElementById("transition-texte").innerHTML = "Au tour de";
                 document.getElementById("transition-tips").innerHTML = "TIPS : Cachez l'écran à votre adversaire !";
                 document.getElementById("bouton-pret").innerHTML = "PRET";
             }
                 
-            document.getElementById("partie").style.display = "none";
-            document.getElementById("transition").style.display = "block";
-            document.getElementById("transition-prochain").innerHTML = Jeu.joueurs[Plateau.i].getNom();
+            if (!Jeu.joueurs[1].getEstUneIa() || (!Jeu.joueurs[Plateau.i].getNbBateauxVivants())) {
+                document.getElementById("partie").style.display = "none";
+                document.getElementById("transition").style.display = "block";
+                document.getElementById("transition-prochain").innerHTML = Jeu.joueurs[Plateau.i].getNom();
+            } else {
+                document.getElementById("partie").style.display = "flex";
+                Jeu.plateau.afficherPlateau();
+                Affichage.infosTour();
+                Jeu.numTour++;
+            }
+
             Jeu.plateau.setClickIsOn(true);
-            if (!Jeu.numTour && Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit()) {
-                Jeu.numTour = 1;
+            if (Jeu.numTour == 1 && Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit())
                 document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";    
-            }     
         } else {
             document.getElementById("transition").style.display = "none";
             if (Jeu.numTour == -1 || forceHome) {
@@ -136,5 +149,9 @@ class Jeu {
                     Affichage.changerCurseurs("cursor-addBoat");                        
             }
         }
+    }
+
+    static getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
     }
 }

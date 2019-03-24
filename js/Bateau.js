@@ -23,16 +23,19 @@ class Bateau {
     }
 
     static initBateaux(coordonnees) {
-        Jeu.joueurs[Plateau.i].bateaux[Plateau.j] = new Bateau(coordonnees);
-        Plateau.j++; 
-        
-        Affichage.playSound(0);
-        Jeu.plateau.afficherPlateau();
+        if (Jeu.joueurs[1].getEstUneIa()) {
+            Jeu.joueurs[1].bateaux[Plateau.j] = new Bateau(coordonnees);
+        } else {
+            Jeu.joueurs[Plateau.i].bateaux[Plateau.j] = new Bateau(coordonnees);
+            Plateau.j++; 
+            
+            Affichage.playSound(0);
+            Jeu.plateau.afficherPlateau();
+        }
 
         if (Plateau.j == Joueur.nbBateaux) { 
             Jeu.joueurs[Plateau.i].setEstInit(true);
             Plateau.j = 0;
         }
-
     }
 }

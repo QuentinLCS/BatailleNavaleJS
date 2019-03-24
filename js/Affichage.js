@@ -21,7 +21,6 @@ class Affichage {
         document.getElementById("partie-infos-nomJoueur").innerHTML = "<p><h3>" +Jeu.joueurs[Plateau.i].getNom()+ "</h3></p>"
     }
 
-    // TODO : Afficher les règles en fonction du mode de jeu.
     static regles(forceDesactiver) {
         let texte = '<div id="regles-texte" class="centrerV"><h2>REGLES DU JEU</h2><label>Difficulté : ';
         switch (Jeu.plateau.getTaille()) {

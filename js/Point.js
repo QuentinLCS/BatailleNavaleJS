@@ -28,17 +28,22 @@ class Point {
 
     setTouche(newVal, adversaire) {
         let j = 0;
+        let joueur = Plateau.i;
+
+        if(Jeu.joueurs[1].getEstUneIa()) {
+            joueur++; adversaire--;
+        }
 
         this.touche = newVal;
 
-        for (let i = 0; i < Jeu.joueurs[Plateau.i].bateaux[Plateau.j].points.length; i++) {
-            if (Jeu.joueurs[adversaire].bateaux[Plateau.j].points[i].getTouche()) {
+        for (let i = 0; i < Jeu.joueurs[joueur].bateaux[Plateau.j].points.length; i++) {
+            if (Jeu.joueurs[Jeu.joueurs[1].getEstUneIa() ? joueur : adversaire].bateaux[Plateau.j].points[i].getTouche()) {
                 j++;
             }
         }
 
-        if (Jeu.joueurs[Plateau.i].bateaux[Plateau.j].points.length == j)
-            Jeu.joueurs[Plateau.i].bateaux[Plateau.j].setCoule(true);
+        if (Jeu.joueurs[joueur].bateaux[Plateau.j].points.length == j)
+            Jeu.joueurs[joueur].bateaux[Plateau.j].setCoule(true);
     }
 
     estTouche(p) {

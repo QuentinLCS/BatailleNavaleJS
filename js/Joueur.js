@@ -2,17 +2,17 @@ class Joueur {
 
     nbBateaux;
 
-    constructor(numJoueur) {
-
-            if (!numJoueur)
-                this.nom = document.init.nomJoueur1.value;
-            else
-                this.nom = document.init.nomJoueur2.value;
-            if (this.nom == "") 
-                this.nom = "Joueur " +(numJoueur+1);
+    constructor(numJoueur, estUneIa) {
+        if (!numJoueur)
+            this.nom = document.init.nomJoueur1.value;
+        else
+            this.nom = document.init.nomJoueur2.value;
+        if (this.nom == "") 
+            this.nom = "Joueur " +(numJoueur+1);
         this.bateaux = [];
         this.estInit = false;
-        this.nbBateauxVivants = Joueur.nbBateaux;
+        this.nbBateauxVivants;
+        this.estUneIa = estUneIa;
     }
 
     getNom() {
@@ -27,6 +27,10 @@ class Joueur {
         return this.nbBateauxVivants;
     }
 
+    getEstUneIa() {
+        return this.estUneIa;
+    }
+
     setNom(nom) {
         this.nom = nom;
     }
@@ -37,6 +41,10 @@ class Joueur {
 
     setNbBateauxVivants(nbBateauxVivants) {
         this.nbBateauxVivants = nbBateauxVivants;
+    }
+
+    setEstUneIa(estUneIa) {
+        this.estUneIa = estUneIa;
     }
     
 }
