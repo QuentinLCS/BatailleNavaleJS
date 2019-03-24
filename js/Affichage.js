@@ -51,8 +51,7 @@ class Affichage {
         let CursorTargetBList = document.getElementsByClassName("cursor-targetB");
         let CursorImpossible = document.getElementsByClassName("cursor-impossible");
 
-        
-        for(let i = 0; i < (CursorImpossible.length >= CursorTargetBList.length ? CursorTargetImpossible.length : CursorTargetBList.length); i++)
+        for(let i = 0; i < (CursorImpossible.length >= CursorTargetBList.length ? CursorImpossible.length : CursorTargetBList.length); i++)
         {           
 
             if (i < CursorImpossible.length)

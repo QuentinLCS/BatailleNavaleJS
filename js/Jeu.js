@@ -4,9 +4,18 @@ class Jeu {
     numTour;
     plateau;
 
-    static setMode(mode) { //test
+    static setMode(mode) { 
 
-        Jeu.plateau = new Plateau();
+        if (mode < 4) {
+            Jeu.plateau = new Plateau();
+            document.getElementById("modes").style.display = "none";
+            document.getElementById("nbJoueurs").style.display = "block";
+        } else {
+            document.getElementById("nbJoueurs").style.display = "none";
+            document.getElementById("index-box").style.display = "none";
+            document.getElementById("initialisation").style.display = "block";
+            document.forms["init"].elements["nomJoueur1"].focus();
+        }
 
         switch (mode) {
             case 1:
@@ -20,13 +29,15 @@ class Jeu {
                 Jeu.plateau.setTaille(20);
                 document.documentElement.style.setProperty('--main-color', '103, 34, 194'); 
                 break;
-        }
-        
-        document.getElementById("index-box").style.display = "none";
-        document.getElementById("initialisation").style.display = "block";
-        Affichage.boutonsOptions(1);
+            case 4:
 
-        document.forms["init"].elements["nomJoueur1"].focus();
+                break;
+            case 5:
+                
+                break;
+        }
+            
+        Affichage.boutonsOptions(1);
     }
 
     static lancerPartie() {
@@ -109,7 +120,10 @@ class Jeu {
             if (Jeu.numTour == -1 || forceHome) {
                 Affichage.boutonsOptions();
                 document.getElementById("partie").style.display = "none";
+                document.getElementById("nbJoueurs").style.display = "none";
                 document.getElementById("index-box").style.display = "block";
+                document.getElementById("modes").style.display = "flex";
+                document.getElementById("initialisation").style.display = "none";
                 document.body.style.backgroundImage = "url(images/fond_accueil.png)";
                 document.documentElement.style.setProperty('--main-color', '1, 139, 231'); 
             } else {
