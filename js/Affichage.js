@@ -21,7 +21,18 @@ class Affichage {
         document.getElementById("partie-infos-nomJoueur").innerHTML = "<p><h3>" +Jeu.joueurs[Plateau.i].getNom()+ "</h3></p>"
     }
 
+    // TODO : Afficher les règles en fonction du mode de jeu.
     static regles(forceDesactiver) {
+        let texte;
+        switch (Jeu.Plateau.getTaille()) {
+            case 10:
+                break;
+            case 15:
+                break;
+            case 20:
+                break;
+        
+        }
         if (document.getElementById("regles").style.display == "none" && !forceDesactiver) {
             document.getElementById("regles").style.display = 'block';
         } else {

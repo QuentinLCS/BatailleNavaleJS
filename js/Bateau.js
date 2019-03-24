@@ -23,7 +23,6 @@ class Bateau {
     }
 
     static initBateaux(coordonnees) {
-        Affichage.changerCurseurs("cursor-addBoat");
         Jeu.joueurs[Plateau.i].bateaux[Plateau.j] = new Bateau(coordonnees);
         Plateau.j++; 
         

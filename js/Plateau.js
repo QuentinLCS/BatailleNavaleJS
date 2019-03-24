@@ -31,6 +31,16 @@ class Plateau {
         this.clickIsOn = clickIsOn;
     }
 
+    clearInts(joueur) {
+        for (let i = 0; i < this.taille; i++)
+            for (let j = 0; j < this.taille; j++) {
+                this.tableau[i][j].setTire(joueur, false);
+                this.tableau[i][j].setCoule(joueur, false);
+                this.tableau[i][j].setProche(joueur, false);
+                this.tableau[i][j].setTouche(joueur, false);   
+            }
+    }
+
     genererPlateau() {
         let texte = '<table>';
         for(let ligne = 0 ; ligne < this.taille ; ligne++) {

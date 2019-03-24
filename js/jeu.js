@@ -25,7 +25,6 @@ class Jeu {
         document.getElementById("index-box").style.display = "none";
         document.getElementById("initialisation").style.display = "block";
         Affichage.boutonsOptions(1);
-
     }
 
     static lancerPartie() {
@@ -67,6 +66,9 @@ class Jeu {
                 if (Jeu.plateau.getTaille() == 20) {
                     Jeu.plateau.tableau[Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].getX()][Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].getY()].setBateau(adversaire, false);
                     Jeu.joueurs[adversaire].setEstInit(false);
+                    setTimeout(function() {
+                        Jeu.plateau.clearInts(Plateau.i == 1 ? 0 : 1);
+                    }, 3000);
                 }
             }
         }
@@ -83,7 +85,6 @@ class Jeu {
                 document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
                 document.body.style.backgroundImage = "url(images/fond_victoire.jpg)";
-
                 Jeu.numTour = -1;
             } else {
                 Plateau.i<1 ? Plateau.i++ : Plateau.i--;
@@ -99,7 +100,7 @@ class Jeu {
             if (!Jeu.numTour && Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit()) {
                 Jeu.numTour = 1;
                 document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";    
-            }           
+            }     
         } else {
             document.getElementById("transition").style.display = "none";
             if (Jeu.numTour == -1 || forceHome) {
@@ -113,6 +114,8 @@ class Jeu {
                 Jeu.plateau.afficherPlateau();
                 Affichage.infosTour();
                 Jeu.numTour += Plateau.i;
+                if (!Jeu.joueurs[0].getEstInit() || !Jeu.joueurs[1].getEstInit())
+                    Affichage.changerCurseurs("cursor-addBoat");                        
             }
         }
     }
