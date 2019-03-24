@@ -71,9 +71,9 @@ strong
 
 h1
 {
+    font-size: 2em;
     text-align: center;
     font-weight: bold;
-    text-shadow: 0px 0px 7px rgb(202, 202, 202);
     margin: 0;
 }
 
@@ -236,6 +236,7 @@ input
         border-radius: 10px;
         line-height: 200px;
         font-size: 1.8em;
+        text-shadow: 0px 0px 10px rgb(0, 0, 0);
     }
 }
 
@@ -249,6 +250,7 @@ input
         border-radius: 10px;
         line-height: 200px;
         font-size: 1.8em;
+        text-shadow: 0px 0px 10px rgb(0, 0, 0);
     }
     to {   
         width: 200px;
