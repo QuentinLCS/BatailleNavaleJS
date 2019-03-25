@@ -41,14 +41,17 @@ class Jeu {
     }
 
     static lancerPartie() {
+
         if (Jeu.joueurs[1].getEstUneIa()) {
             Jeu.joueurs[0].setEstInit(true);
             Jeu.joueurs[1].setEstInit(true);
             Bateau.initBateaux(new Point(Jeu.getRandomInt(Jeu.plateau.getTaille()), Jeu.getRandomInt(Jeu.plateau.getTaille())));
         }
         Joueur.nbBateaux = document.init.nbBateaux.value;
-        for (let i = 0; i < 2; i++)
+        for (let i = 0; i < 2; i++) {
             Jeu.joueurs[i].setNbBateauxVivants(Joueur.nbBateaux);
+            Jeu.joueurs[i].setNom(i);
+        }
         document.getElementById("initialisation").style.display = "none";
         document.getElementById("partie").style.display = "flex";
         Affichage.boutonsOptions(2);
@@ -100,15 +103,15 @@ class Jeu {
     static transition(forceHome) {
         Affichage.regles(true);
         if (!Jeu.plateau.getClickIsOn() && !forceHome) {
-            if (Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit())
+            if (Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit() && Jeu.numTour == 1)
                 document.body.style.backgroundImage = "none, url(images/fond_jeu.jpg)";
             if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
                 Affichage.playSound(2);
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
                 document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
-                document.body.style.backgroundImage = "url(images/fond_victoire.gif), url(images/fond_victoire.jpg)";
                 Jeu.numTour = -1;
+                if (Jeu.numTour != -1) document.body.style.backgroundImage = "url(images/fond_victoire.gif), url(images/fond_victoire.jpg)";
             } else {
                 if (Plateau.i == 1 || !Jeu.joueurs[1].getEstUneIa()) 
                     Plateau.i<1 ? Plateau.i++ : Plateau.i--;
@@ -141,6 +144,7 @@ class Jeu {
                 document.getElementById("initialisation").style.display = "none";
                 document.body.style.backgroundImage = "none, url(images/fond_accueil.png)";
                 document.documentElement.style.setProperty('--main-color', '1, 139, 231'); 
+                Jeu.numTour = -1;
             } else {
                 document.getElementById("partie").style.display = "flex";
                 Jeu.plateau.afficherPlateau();
