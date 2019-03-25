@@ -5,7 +5,7 @@ class Joueur {
     constructor(numJoueur, estUneIa) {
         if (!numJoueur)
             this.nom = document.init.nomJoueur1.value;
-        else
+        else if (!estUneIa)
             this.nom = document.init.nomJoueur2.value;
         if (this.nom == "") 
             this.nom = "Joueur " +(numJoueur+1);

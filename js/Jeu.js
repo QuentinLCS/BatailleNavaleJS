@@ -10,10 +10,10 @@ class Jeu {
             Jeu.plateau = new Plateau();
             document.getElementById("modes").style.display = "none";
             document.getElementById("nbJoueurs").style.display = "flex";
-        } else {
+        } if (mode >= 4) {
             document.getElementById("nbJoueurs").style.display = "none";
             document.getElementById("index-box").style.display = "none";
-            document.getElementById("initialisation").style.display = "block";
+            Affichage.initialisation(mode);
             document.forms["init"].elements["nomJoueur1"].focus();
         }
 

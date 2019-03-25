@@ -12,6 +12,16 @@ class Affichage {
         document.getElementById("menu-boutons").innerHTML = texte;
     }
 
+    static initialisation(mode) {
+        let texte = ""; 
+        if (mode == 4)
+            texte += '<div id="initialisation-texte" style="height: 250px"><div><h2>Initialisation</h2><form name="init"><label>Votre nom: </label><input type="text" name="nomJoueur1" maxlength="15"><label>Nombre de bateaux: </label><input type="number" name="nbBateaux" step="1" value="1" min="1" max="1"></form><div id="initialisation-tips" class="tips"></div></div></div><div class="bouton cursor-click" onclick="Jeu.lancerPartie()">Commencer la partie !</div>';
+        else
+            texte += '<div id="initialisation-texte" style="height: 335px"><div><h2>Initialisation</h2><form name="init"><label>Joueur 1: </label><input type="text" name="nomJoueur1" maxlength="15"><label>Joueur 2: </label><input type="text" name="nomJoueur2" maxlength="15"><label>Nombre de bateaux: </label><input type="number" name="nbBateaux" step="1" value="1" min="1" max="1"></form><div id="initialisation-tips" class="tips"></div></div></div><div class="bouton cursor-click" onclick="Jeu.lancerPartie()">Commencer la partie !</div>';
+
+        document.getElementById("initialisation").innerHTML = texte;
+        document.getElementById("initialisation").style.display = "block";
+    }
     static infosTour() {
         if (!Jeu.numTour) {
             document.getElementById("partie-infos-tours").innerHTML = "<p><h2>Veuillez placer vos bateaux</h2></p>";
