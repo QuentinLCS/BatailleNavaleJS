@@ -22,7 +22,7 @@ class Affichage {
     }
 
     static regles(forceDesactiver) {
-        let texte; 
+        let texte = ""; 
         if (Jeu.joueurs != undefined) {
             switch (Jeu.plateau.getTaille()) {
                 case 10:

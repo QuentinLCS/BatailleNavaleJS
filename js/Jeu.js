@@ -100,6 +100,8 @@ class Jeu {
     static transition(forceHome) {
         Affichage.regles(true);
         if (!Jeu.plateau.getClickIsOn() && !forceHome) {
+            if (Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit())
+                document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
             if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
                 Affichage.playSound(2);
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
@@ -127,8 +129,7 @@ class Jeu {
             }
 
             Jeu.plateau.setClickIsOn(true);
-            if (Jeu.numTour == 1 && Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit())
-                document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";    
+                
         } else {
             document.getElementById("transition").style.display = "none";
             if (Jeu.numTour == -1 || forceHome) {
