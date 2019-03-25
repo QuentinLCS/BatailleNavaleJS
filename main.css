@@ -30,9 +30,9 @@ body, html
 
 body
 {
-    background-image: url(images/fond_accueil.png);
+    background-image: none ,url(images/fond_accueil.png);
     background-repeat: repeat;    
-    background-size: cover;    
+    background-size: 115px ,cover;    
     font-family: "Roboto";
     color: rgb(0, 0, 0);
     margin: 0px;
@@ -579,6 +579,7 @@ td img
         opacity: 1;
     }
 }
+
 
 
 /* Footer */

@@ -95,16 +95,26 @@ class Plateau {
 
         if (Jeu.plateau.getClickIsOn()) {
 
-            Jeu.plateau.setClickIsOn(false);
-            setTimeout(function() {
-                Jeu.transition(false);
-            }, 2000);
-
+            let dureeTransition = 2000;
             let coordonnees = new Point(ligne, colonne);
+
             if (!Jeu.joueurs[0].getEstInit() || !Jeu.joueurs[1].getEstInit())
                 Bateau.initBateaux(coordonnees);            
             else
                 Jeu.jeu(coordonnees);
+            
+            if (Jeu.joueurs[1].getEstUneIa())
+                if (Jeu.plateau.getTaille() != 20) {
+                    if (!this.tableau[ligne][colonne].getCoule(0))
+                        dureeTransition = 0;
+                } else
+                    if (!this.tableau[ligne][colonne].getProche(0) && !this.tableau[ligne][colonne].getCoule(0))
+                        dureeTransition = 0;
+                
+            Jeu.plateau.setClickIsOn(false);
+            setTimeout(function() {
+                Jeu.transition(false);
+            }, (dureeTransition));
         }
         Affichage.changerCurseurs("cursor-wait");
 

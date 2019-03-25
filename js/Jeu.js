@@ -101,13 +101,13 @@ class Jeu {
         Affichage.regles(true);
         if (!Jeu.plateau.getClickIsOn() && !forceHome) {
             if (Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit())
-                document.body.style.backgroundImage = "url(images/fond_jeu.jpg)";
+                document.body.style.backgroundImage = "none, url(images/fond_jeu.jpg)";
             if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
                 Affichage.playSound(2);
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
                 document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
-                document.body.style.backgroundImage = "url(images/fond_victoire.jpg)";
+                document.body.style.backgroundImage = "url(images/fond_victoire.gif), url(images/fond_victoire.jpg)";
                 Jeu.numTour = -1;
             } else {
                 if (Plateau.i == 1 || !Jeu.joueurs[1].getEstUneIa()) 
@@ -139,7 +139,7 @@ class Jeu {
                 document.getElementById("index-box").style.display = "block";
                 document.getElementById("modes").style.display = "flex";
                 document.getElementById("initialisation").style.display = "none";
-                document.body.style.backgroundImage = "url(images/fond_accueil.png)";
+                document.body.style.backgroundImage = "none, url(images/fond_accueil.png)";
                 document.documentElement.style.setProperty('--main-color', '1, 139, 231'); 
             } else {
                 document.getElementById("partie").style.display = "flex";
