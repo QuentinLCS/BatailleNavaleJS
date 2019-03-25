@@ -14,6 +14,6 @@ Un étudiant de première année :
 
 ## DELAIS
 - [ ] DEBUT    :   20 Mars 2018
-- [x] FIN      :   ????
+- [x] FIN      :   24 Mars 2018 (version fonctionnelle) 
 
 *Enjoy ! :)*
