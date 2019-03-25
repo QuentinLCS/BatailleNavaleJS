@@ -1,4 +1,4 @@
-
+@import "compass/css3";
 
 /* Variables */
 
@@ -32,7 +32,7 @@ body
 {
     background-image: none ,url(images/fond_accueil.png);
     background-repeat: repeat;    
-    background-size: 115px ,cover;    
+    background-size: 200px ,cover;    
     font-family: "Roboto";
     color: rgb(0, 0, 0);
     margin: 0px;
@@ -130,9 +130,6 @@ input
 .cursor-impossible {cursor: not-allowed;}
 .cursor-wait {cursor: progress;}
 .cursor-addBoat {cursor: url(images/cursorBoat.png)8 6, default;}
-
-
-
 
 
 /* Choix du mode */

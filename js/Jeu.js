@@ -110,8 +110,8 @@ class Jeu {
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
                 document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
-                Jeu.numTour = -1;
                 if (Jeu.numTour != -1) document.body.style.backgroundImage = "url(images/fond_victoire.gif), url(images/fond_victoire.jpg)";
+                    Jeu.numTour = -1;
             } else {
                 if (Plateau.i == 1 || !Jeu.joueurs[1].getEstUneIa()) 
                     Plateau.i<1 ? Plateau.i++ : Plateau.i--;
