@@ -30,7 +30,7 @@ body
 {
     background-image: none ,url(images/fond_accueil.png);
     background-repeat: repeat;    
-    background-size: 200px ,cover;    
+    background-size: 150px ,cover;    
     font-family: "Roboto";
     color: rgb(0, 0, 0);
     margin: 0px;
