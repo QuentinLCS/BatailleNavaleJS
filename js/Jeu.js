@@ -109,7 +109,7 @@ class Jeu {
                 Affichage.playSound(2);
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
                 if (Jeu.joueurs[1].getEstUneIa())
-                document.getElementById("transition-tips").innerHTML = "Bateau trouvé en " +Jeu.numTour+ " tours, bien joué !";
+                document.getElementById("transition-tips").innerHTML = "Bateaux trouvés en " +Jeu.numTour+ " tours, bien joué !";
                 else
                     document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " a coulé ! (" +Jeu.numTour+ " tours)";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
