@@ -108,7 +108,10 @@ class Jeu {
             if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
                 Affichage.playSound(2);
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
-                document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
+                if (Jeu.joueurs[1].getEstUneIa())
+                document.getElementById("transition-tips").innerHTML = "Bateau trouvé en " +Jeu.numTour+ " tours, bien joué !";
+                else
+                    document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " tire comme un pied !";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";
                 if (Jeu.numTour != -1) document.body.style.backgroundImage = "url(images/fond_victoire.gif), url(images/fond_victoire.jpg)";
                     Jeu.numTour = -1;
