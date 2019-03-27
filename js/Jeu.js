@@ -42,21 +42,26 @@ class Jeu {
 
     static lancerPartie() {
 
-        if (Jeu.joueurs[1].getEstUneIa()) {
-            Jeu.joueurs[0].setEstInit(true);
-            Jeu.joueurs[1].setEstInit(true);
-            Bateau.initBateaux(new Point(Jeu.getRandomInt(Jeu.plateau.getTaille()), Jeu.getRandomInt(Jeu.plateau.getTaille())));
+        if (document.init.nbBateaux.value == 1) {
+            if (Jeu.joueurs[1].getEstUneIa()) {
+                Jeu.joueurs[0].setEstInit(true);
+                Jeu.joueurs[1].setEstInit(true);
+                Bateau.initBateaux(new Point(Jeu.getRandomInt(Jeu.plateau.getTaille()), Jeu.getRandomInt(Jeu.plateau.getTaille())));
+            }
+            Joueur.nbBateaux = document.init.nbBateaux.value;
+            for (let i = 0; i < 2; i++) {
+                Jeu.joueurs[i].setNbBateauxVivants(Joueur.nbBateaux);
+                Jeu.joueurs[i].setNom(i);
+            }
+            document.getElementById("initialisation").style.display = "none";
+            document.getElementById("partie").style.display = "flex";
+            Affichage.boutonsOptions(2);
+            !Jeu.joueurs[1].getEstUneIa() ? Jeu.numTour = 0 : Jeu.numTour = 1;
+            Jeu.transition(false);
+        } else {
+            document.init.nbBateaux.value = 1;
+            document.init.nbBateaux.style.backgroundColor = "#FFE8E8"
         }
-        Joueur.nbBateaux = document.init.nbBateaux.value;
-        for (let i = 0; i < 2; i++) {
-            Jeu.joueurs[i].setNbBateauxVivants(Joueur.nbBateaux);
-            Jeu.joueurs[i].setNom(i);
-        }
-        document.getElementById("initialisation").style.display = "none";
-        document.getElementById("partie").style.display = "flex";
-        Affichage.boutonsOptions(2);
-        !Jeu.joueurs[1].getEstUneIa() ? Jeu.numTour = 0 : Jeu.numTour = 1;
-        Jeu.transition(false);
     }
     
     static jeu(coordonnees) {
