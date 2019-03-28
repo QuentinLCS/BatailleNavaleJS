@@ -7,7 +7,8 @@ class Plateau {
         Plateau.i = 1; Plateau.j = 0;
         this.clickIsOn = false;
         this.tableau = [];
-        this.taille;      
+        this.taille;    
+        this.displayBateau = true;  
     }
 
     getTaille() {
@@ -16,6 +17,10 @@ class Plateau {
 
     getClickIsOn() {
         return this.clickIsOn;
+    }
+
+    getDisplayBateau() {
+        return this.displayBateau;
     }
 
     setTaille(taille) {
@@ -29,6 +34,10 @@ class Plateau {
 
     setClickIsOn(clickIsOn) {
         this.clickIsOn = clickIsOn;
+    }
+
+    setDisplayBateau(displayBateau) {
+        this.displayBateau = displayBateau;
     }
 
     clearInts(joueur) {
@@ -58,7 +67,7 @@ class Plateau {
                     else
                         texte += 'class="cursor-impossible"> <img src="images/jeu_checked.svg" alt="tué">';  
                 else if (this.tableau[ligne][colonne].getTire(Plateau.i) || this.tableau[ligne][colonne].getProche(Plateau.i) && this.getTaille() == 15)
-                    if (this.tableau[ligne][colonne].getBateau(Plateau.i))
+                    if (this.tableau[ligne][colonne].getBateau(Plateau.i) && this.getDisplayBateau())
                         texte += 'class="case-tire cursor-impossible" ><img src="images/jeu_bateau.svg" alt="bateau">';
                     else
                         if ((!Jeu.joueurs[0].getEstInit() || !Jeu.joueurs[1].getEstInit()))
@@ -66,14 +75,14 @@ class Plateau {
                         else
                             texte += 'class="case-tire cursor-impossible" > ';
                 else if (this.tableau[ligne][colonne].getProche(Plateau.i)) 
-                    if (this.tableau[ligne][colonne].getBateau(Plateau.i))
+                    if (this.tableau[ligne][colonne].getBateau(Plateau.i) && this.getDisplayBateau())
                         texte += 'class="case-proche cursor-impossible"><img src="images/jeu_bateau.svg" alt="bateau">';
                     else
                         if ((!Jeu.joueurs[0].getEstInit() || !Jeu.joueurs[1].getEstInit()))
                             texte += 'class="case-proche cursor-addBoat" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')">';
                         else
                             texte += 'class="case-proche cursor-impossible"> ';
-                else if (this.tableau[ligne][colonne].getBateau(Plateau.i)) 
+                else if (this.tableau[ligne][colonne].getBateau(Plateau.i) && this.getDisplayBateau()) 
                     texte += 'class="cursor-targetB" onclick="Jeu.plateau.cliquerCase(' +ligne+ ',' +colonne+ ')"><img src="images/jeu_bateau.svg" alt="bateau">';
                 else if (this.tableau[ligne][colonne].getTouche(Plateau.i) ) 
                     texte += 'class="cursor-impossible"><img src="images/jeu_touche.svg" alt="touché">';

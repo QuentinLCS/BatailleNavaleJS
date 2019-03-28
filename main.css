@@ -474,12 +474,14 @@ td img
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
-#options-flex {height: 210px;}
+#options-flex { height: 280px; }
 
-#menu-boutons {height: 136px; flex-direction: column-reverse;}
+#menu-boutons { flex-direction: column-reverse; }
+
+#menu-boutons div { margin-bottom: 10px; }
 
 #music-bouton 
 {
@@ -492,10 +494,16 @@ td img
     order: 1;
 }
 
+#display-bouton
+{
+    background-image: url(images/bouton_display.svg);
+    order: 2;
+}
+
 #home-bouton 
 {
     background-image: url(images/bouton_home.svg);
-    order: 2;
+    order: 3;
 }
 
 .bouton-menu 

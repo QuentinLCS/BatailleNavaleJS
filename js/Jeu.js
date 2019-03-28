@@ -55,8 +55,13 @@ class Jeu {
             }
             document.getElementById("initialisation").style.display = "none";
             document.getElementById("partie").style.display = "flex";
-            Affichage.boutonsOptions(2);
-            !Jeu.joueurs[1].getEstUneIa() ? Jeu.numTour = 0 : Jeu.numTour = 1;
+            if (Jeu.joueurs[1].getEstUneIa()) { 
+                Affichage.boutonsOptions(2);
+                Jeu.numTour = 1;
+            } else {
+                Jeu.numTour = 0;
+                Affichage.boutonsOptions(3);
+            }
             Jeu.transition(false);
         } else {
             document.init.nbBateaux.value = 1;
@@ -108,13 +113,14 @@ class Jeu {
     static transition(forceHome) {
         Affichage.regles(true);
         if (!Jeu.plateau.getClickIsOn() && !forceHome) {
-            if (Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit() && Jeu.numTour == 1)
+            if (Jeu.joueurs[0].getEstInit() && Jeu.joueurs[1].getEstInit() && Jeu.numTour == 1) {
                 document.body.style.backgroundImage = "none, url(images/fond_jeu.jpg)";
-            if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
+                Affichage.bateau(true);
+            } if (!Jeu.joueurs[Plateau.i].getNbBateauxVivants()) {
                 Affichage.playSound(2);
                 document.getElementById("transition-texte").innerHTML = "Victoire de";
                 if (Jeu.joueurs[1].getEstUneIa())
-                document.getElementById("transition-tips").innerHTML = "Bateaux trouvés en " +Jeu.numTour+ " tours, bien joué !";
+                    document.getElementById("transition-tips").innerHTML = "Bateaux trouvés en " +Jeu.numTour+ " tours, bien joué !";
                 else
                     document.getElementById("transition-tips").innerHTML = Jeu.joueurs[Plateau.i == 1 ? 0 : 1].getNom()+ " a coulé ! (" +Jeu.numTour+ " tours)";
                 document.getElementById("bouton-pret").innerHTML = "REVENIR AU MENU";

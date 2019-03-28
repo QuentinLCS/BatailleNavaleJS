@@ -3,8 +3,10 @@ class Affichage {
         let texte = '';
         
         switch (mode) {
+            case 3:
+                texte += '<div id="display-bouton" class="bouton-menu bouton cursor-click" onclick="Affichage.bateau(false)"></div>';
             case 2:
-                texte += '<div id="regles-bouton" class="bouton-menu bouton cursor-click" onclick="Affichage.regles(false)"></div>'
+                texte += '<div id="regles-bouton" class="bouton-menu bouton cursor-click" onclick="Affichage.regles(false)"></div>';
             case 1:
                 texte += '<div id="home-bouton" class="bouton-menu bouton cursor-click" onclick="Jeu.transition(true)"></div>';
                 break;
@@ -97,5 +99,17 @@ class Affichage {
             document.getElementById("music").pause();
             document.getElementById("music-bouton").style.backgroundImage = "url(images/bouton_volume_off.svg)";
         }
+    }
+
+    static bateau(forcerDesactiver) {
+        if (!Jeu.joueurs[1].getEstUneIa())
+            if (Jeu.plateau.getDisplayBateau() || forcerDesactiver) {
+                document.getElementById("display-bouton").style.backgroundImage = "url(images/bouton_display_off.svg)";
+                Jeu.plateau.setDisplayBateau(false);
+            } else {
+                document.getElementById("display-bouton").style.backgroundImage = "url(images/bouton_display.svg)";
+                Jeu.plateau.setDisplayBateau(true);
+            }
+        Jeu.plateau.afficherPlateau();
     }
 }
