@@ -102,7 +102,7 @@ class Jeu {
                             Jeu.joueurs[adversaire].bateaux[Plateau.j].getPoints()[0].setY(Jeu.getRandomInt(Jeu.plateau.getTaille()));
                         } else
                             Jeu.joueurs[adversaire].setEstInit(false);
-                        Jeu.plateau.clearInts((!Jeu.joueurs[1].getEstUneIa() ? Plateau.i : adversaire) == 1 ? 0 : 1);
+                        Jeu.plateau.clearInts(Plateau.i);
                     }, Jeu.joueurs[1].getEstUneIa() ? 1000 : 2000);
                 }
             }
